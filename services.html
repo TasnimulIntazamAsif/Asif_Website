@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Tasnimul Intazam Asif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 w-full z-50 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600 transition-colors">Tasnimul Intazam Asif</a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="flex items-center space-x-1 font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-home text-sm"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="about.html" class="flex items-center space-x-1 font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-user text-sm"></i>
+                        <span>About</span>
+                    </a>
+                    <a href="services.html" class="flex items-center space-x-1 font-medium text-blue-600 transition-colors">
+                        <i class="fas fa-briefcase text-sm"></i>
+                        <span>Services</span>
+                    </a>
+                    <a href="portfolio.html" class="flex items-center space-x-1 font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-code text-sm"></i>
+                        <span>Portfolio</span>
+                    </a>
+                    
+                    <a href="contact.html" class="flex items-center space-x-1 font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-envelope text-sm"></i>
+                        <span>Contact</span>
+                    </a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md text-gray-700" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <nav class="flex flex-col space-y-4">
+                    <a href="index.html" class="flex items-center space-x-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="about.html" class="flex items-center space-x-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    <a href="services.html" class="flex items-center space-x-2 font-medium text-blue-600 transition-colors">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Services</span>
+                    </a>
+                    <a href="portfolio.html" class="flex items-center space-x-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-code"></i>
+                        <span>Portfolio</span>
+                    </a>
+                    <a href="blog.html" class="flex items-center space-x-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-book-open"></i>
+                        <span>Blog</span>
+                    </a>
+                    <a href="contact.html" class="flex items-center space-x-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="pt-24 sm:pt-28 pb-12 sm:pb-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Services Offered</h2>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                    Comprehensive data science and academic research services tailored to your needs
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Service 1: Machine Learning Model Building -->
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-lg">
+                            <i class="fas fa-brain text-blue-600 text-xl sm:text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 ml-4">Machine Learning Model Building</h3>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-4 leading-relaxed text-sm sm:text-base">
+                        Custom ML models for prediction, classification, and clustering tasks using Python, scikit-learn, and TensorFlow.
+                    </p>
+                    
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Model Selection & Training
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Feature Engineering
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Model Evaluation
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Deployment Support
+                        </li>
+                    </ul>
+                    
+                    
+                </div>
+
+                <!-- Service 2: Academic Thesis Writing Support -->
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-lg">
+                            <i class="fas fa-pen-fancy text-blue-600 text-xl sm:text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 ml-4">Academic Thesis Writing Support</h3>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-4 leading-relaxed text-sm sm:text-base">
+                        Comprehensive assistance with thesis proposals, research papers, and presentation slides for academic excellence.
+                    </p>
+                    
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Research Proposals
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Literature Reviews
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Data Analysis Chapters
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Presentation Design
+                        </li>
+                    </ul>
+                    
+                    
+                </div>
+
+                <!-- Service 3: Data Cleaning & Visualization -->
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-lg">
+                            <i class="fas fa-database text-blue-600 text-xl sm:text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 ml-4">Data Cleaning & Visualization</h3>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-4 leading-relaxed text-sm sm:text-base">
+                        Transform raw data into clean, analysis-ready datasets with compelling visualizations and insights.
+                    </p>
+                    
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Data Preprocessing
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Statistical Analysis
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Interactive Dashboards
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Report Generation
+                        </li>
+                    </ul>
+                    
+                   
+                </div>
+
+                <!-- Service 4: PDF to DOCX Conversion -->
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-lg">
+                            <i class="fas fa-file-alt text-blue-600 text-xl sm:text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 ml-4">PDF to DOCX Conversion</h3>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-4 leading-relaxed text-sm sm:text-base">
+                        Advanced OCR-based document conversion with multilingual support and formatting preservation.
+                    </p>
+                    
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            OCR Technology
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Multi-language Support
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Format Preservation
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Batch Processing
+                        </li>
+                    </ul>
+                    
+                   
+                </div>
+
+                <!-- Service 5: Research Paper Summarization -->
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-lg">
+                            <i class="fas fa-search text-blue-600 text-xl sm:text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 ml-4">Research Paper Summarization</h3>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-4 leading-relaxed text-sm sm:text-base">
+                        Comprehensive analysis and summarization of academic papers with key insights extraction.
+                    </p>
+                    
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Literature Analysis
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Key Findings Extraction
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Comparative Studies
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Citation Management
+                        </li>
+                    </ul>
+                    
+                    
+                </div>
+
+                <!-- Service 6: Custom Data Solutions -->
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-lg">
+                            <i class="fas fa-bolt text-blue-600 text-xl sm:text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 ml-4">Custom Data Solutions</h3>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-4 leading-relaxed text-sm sm:text-base">
+                        Tailored data science solutions for unique business challenges and research questions.
+                    </p>
+                    
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Consultation Services
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Custom Algorithms
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Performance Optimization
+                        </li>
+                        <li class="flex items-center text-xs sm:text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Technical Documentation
+                        </li>
+                    </ul>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- About Section -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-4">Tasnimul Intazam Asif</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed text-sm sm:text-base">
+                        Machine Learning Specialist and Academic Research Expert dedicated to transforming 
+                        data into actionable insights and helping researchers achieve academic excellence.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/asif2896" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-700 p-3 rounded-lg transition-colors">
+                            <i class="fab fa-linkedin text-lg"></i>
+                        </a>
+                        <a href="https://github.com/TasnimulIntazamAsif" target="_blank" rel="noopener noreferrer" class="bg-gray-700 hover:bg-gray-600 p-3 rounded-lg transition-colors">
+                            <i class="fab fa-github text-lg"></i>
+                        </a>
+                        <a href="https://www.fiverr.com/sellers/asif_intezam/edit" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 p-3 rounded-lg transition-colors">
+                            <i class="fas fa-external-link-alt text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">About</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">Services</a></li>
+                        <li><a href="portfolio.html" class="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">Portfolio</a></li>
+                        <li><a href="blog.html" class="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">Blog</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-3"></i>
+                            <a href="mailto:intazam2896@gmail.com" class="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">intazam2896@gmail.com</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-gray-400 mr-3"></i>
+                            <a href="tel:+8801603521786" class="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">+880 1603 521 786</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-gray-400 mr-3"></i>
+                            <span class="text-gray-300 text-sm sm:text-base">Gazipur, Bangladesh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-xs sm:text-sm">
+                    © <span id="current-year"></span> Tasnimul Intazam Asif. All rights reserved.
+                </p>
+                <button onclick="scrollToTop()" class="mt-4 md:mt-0 bg-blue-600 hover:bg-blue-700 p-2 rounded-lg transition-colors">
+                    <i class="fas fa-arrow-up text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('mobile-menu-btn');
+            menu.classList.toggle('hidden');
+            const icon = btn.querySelector('i');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
+
