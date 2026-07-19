@@ -32,8 +32,13 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Poppins', 'Inter', ui-sans-serif, system-ui, sans-serif; }
         .pattern-bg {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
@@ -52,6 +57,44 @@
         .button-animate:active {
             transform: scale(0.97);
         }
+        /* Decorative hero blobs */
+        .hero-blob {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(60px);
+            opacity: 0.35;
+            pointer-events: none;
+        }
+        @keyframes floatBlob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, -30px) scale(1.08); }
+        }
+        .hero-blob-1 { animation: floatBlob 9s ease-in-out infinite; }
+        .hero-blob-2 { animation: floatBlob 11s ease-in-out infinite reverse; }
+        /* Availability badge */
+        .status-dot {
+            box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+            animation: pulseDot 2s infinite;
+        }
+        @keyframes pulseDot {
+            0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55); }
+            70% { box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+        }
+        /* Profile image gradient ring */
+        .avatar-ring {
+            background: conic-gradient(from 180deg, #60a5fa, #38bdf8, #0ea5e9, #60a5fa);
+            padding: 4px;
+            animation: spinRing 8s linear infinite;
+        }
+        @keyframes spinRing {
+            to { transform: rotate(360deg); }
+        }
+        @keyframes bounceChevron {
+            0%, 100% { transform: translateY(0); opacity: 0.6; }
+            50% { transform: translateY(8px); opacity: 1; }
+        }
+        .scroll-cue i { animation: bounceChevron 2s ease-in-out infinite; }
         /* Custom adjustments for before and after hover color */
         .cta-btn {
             color: #fff !important;
@@ -77,8 +120,31 @@
             color: #fff !important;
             font-weight: bold !important;
             transition: color 0.2s;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            border-radius: 2px;
+            background: #38bdf8;
+            transition: width 0.25s ease;
         }
         .nav-link:hover, .nav-link:focus-visible {
+            color: #0369a1 !important;
+        }
+        .nav-link:hover::after, .nav-link:focus-visible::after {
+            width: 100%;
+        }
+        /* Fix nav link visibility once header turns solid white on scroll */
+        #header.bg-white .nav-link {
+            color: #1e293b !important;
+        }
+        #header.bg-white .nav-link:hover,
+        #header.bg-white .nav-link:focus-visible {
             color: #0369a1 !important;
         }
         .quick-link {
@@ -174,30 +240,43 @@
     <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600"></div>
         <div class="absolute inset-0 opacity-10 pattern-bg"></div>
+        <!-- Decorative blobs -->
+        <div class="hero-blob hero-blob-1 w-72 h-72 bg-sky-400 -top-10 -left-10"></div>
+        <div class="hero-blob hero-blob-2 w-96 h-96 bg-blue-400 bottom-0 -right-16"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="flex flex-col items-center space-y-8">
+                <!-- Availability Badge -->
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 shadow-lg">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="status-dot absolute inline-flex h-full w-full rounded-full bg-green-400"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400"></span>
+                    </span>
+                    <span class="text-xs sm:text-sm font-semibold text-white tracking-wide">Available for Freelance Projects</span>
+                </div>
                 <!-- Profile Image -->
                 <div class="relative">
-                    <div class="w-36 h-36 bg-gray-300 rounded-full flex items-center justify-center shadow-2xl overflow-hidden">
-                        <img 
-                            src="https://i.ibb.co/fVzLpGbG/Whats-App-Image-2025-05-06-at-15-47-46-0d88389f.jpg" 
-                            alt="Tasnimul Intazam Asif" 
-                            class="w-full h-full object-cover rounded-full"
-                        />
+                    <div class="avatar-ring rounded-full shadow-2xl">
+                        <div class="w-32 h-32 sm:w-36 sm:h-36 bg-gray-300 rounded-full flex items-center justify-center overflow-hidden border-4 border-blue-900">
+                            <img
+                                src="https://i.ibb.co/fVzLpGbG/Whats-App-Image-2025-05-06-at-15-47-46-0d88389f.jpg"
+                                alt="Tasnimul Intazam Asif"
+                                class="w-full h-full object-cover rounded-full"
+                            />
+                        </div>
                     </div>
-                    <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                    <div class="absolute -bottom-1 -right-1 w-10 h-10 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg ring-4 ring-blue-900">
                         <i class="fas fa-arrow-right text-white text-lg"></i>
                     </div>
                 </div>
                 <div class="text-white space-y-3">
-                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
+                    <h1 class="font-heading text-2xl sm:text-3xl md:text-5xl font-bold leading-tight tracking-tight">
                         Tasnimul Intazam Asif
                     </h1>
-                    <p class="text-sm sm:text-base md:text-lg text-blue-100 max-w-3xl mx-auto font-bold" style="color:#fff !important;">
+                    <p class="text-sm sm:text-base md:text-lg bg-gradient-to-r from-sky-300 via-blue-100 to-sky-300 bg-clip-text text-transparent max-w-3xl mx-auto" style="font-weight:700;">
                         Machine Learning Specialist | Academic Research Expert | Freelance Data Analyst
                     </p>
                     <p class="text-xs sm:text-sm text-blue-200 max-w-2xl mx-auto font-bold" style="color:#fff !important;">
-                        Transforming data into insights and research into publications. 
+                        Transforming data into insights and research into publications.
                         Specialized in machine learning, academic writing, and data analysis.
                     </p>
                 </div>
@@ -205,11 +284,11 @@
                 <div class="relative mt-8 w-full max-w-lg mx-auto flex flex-col items-center">
                     <!-- First line: Hire Me and Download CV -->
                     <div class="flex flex-wrap items-center justify-center gap-3 w-full">
-                       
+
                         <!-- Download CV: force download of correct file and filename via JS -->
-                        <a 
-                            href="#" 
-                            class="flex items-center gap-2 font-semibold border-2 bg-transparent rounded-xl text-base px-5 py-3 min-w-[144px] justify-center button-animate cta-btn focus:outline-none"
+                        <a
+                            href="#"
+                            class="flex items-center gap-2 font-semibold border-2 bg-transparent rounded-xl text-base px-6 py-3 min-w-[144px] justify-center button-animate cta-btn shadow-lg shadow-blue-900/30 focus:outline-none"
                             id="download-cv-btn"
                         >
                             <i class="fas fa-download"></i>
@@ -219,31 +298,31 @@
                     <!-- Second line: only icons for Email, Call, WhatsApp, Github, LinkedIn -->
                     <div class="flex flex-wrap items-center justify-center gap-3 mt-4">
                         <a href="mailto:intazam2896@gmail.com"
-                            class="flex items-center justify-center w-12 h-12 rounded-full border-2 bg-transparent button-animate cta-btn focus:outline-none"
+                            class="flex items-center justify-center w-12 h-12 rounded-full border-2 bg-transparent button-animate cta-btn shadow-md focus:outline-none"
                             title="Email"
                         >
                             <i class="fas fa-envelope text-xl"></i>
                         </a>
                         <a href="tel:+8801871446262"
-                            class="flex items-center justify-center w-12 h-12 rounded-full border-2 bg-transparent button-animate cta-btn focus:outline-none"
+                            class="flex items-center justify-center w-12 h-12 rounded-full border-2 bg-transparent button-animate cta-btn shadow-md focus:outline-none"
                             title="Call"
                         >
                             <i class="fas fa-phone-alt text-xl"></i>
                         </a>
                         <a href="https://wa.me/8801871446262" target="_blank" rel="noopener noreferrer"
-                            class="flex items-center justify-center w-12 h-12 rounded-full border-2 bg-transparent button-animate cta-btn focus:outline-none"
+                            class="flex items-center justify-center w-12 h-12 rounded-full border-2 bg-transparent button-animate cta-btn shadow-md focus:outline-none"
                             title="WhatsApp"
                         >
                             <i class="fab fa-whatsapp text-xl"></i>
                         </a>
                         <a href="https://github.com/TasnimulIntazamAsif" target="_blank" rel="noopener noreferrer"
-                            class="flex items-center justify-center w-12 h-12 rounded-full border-2 bg-transparent button-animate cta-btn focus:outline-none"
+                            class="flex items-center justify-center w-12 h-12 rounded-full border-2 bg-transparent button-animate cta-btn shadow-md focus:outline-none"
                             title="GitHub"
                         >
                             <i class="fab fa-github text-xl"></i>
                         </a>
                         <a href="https://www.linkedin.com/in/asif2896" target="_blank" rel="noopener noreferrer"
-                            class="flex items-center justify-center w-12 h-12 rounded-full border-2 bg-transparent button-animate cta-btn focus:outline-none"
+                            class="flex items-center justify-center w-12 h-12 rounded-full border-2 bg-transparent button-animate cta-btn shadow-md focus:outline-none"
                             title="LinkedIn"
                         >
                             <i class="fab fa-linkedin text-xl"></i>
@@ -252,6 +331,11 @@
                 </div>
             </div>
         </div>
+        <!-- Scroll cue -->
+        <a href="#contact-options" class="scroll-cue hidden sm:flex flex-col items-center gap-1 absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 hover:text-white transition-colors z-10">
+            <span class="text-[11px] uppercase tracking-widest">Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </a>
     </section>
 
     <!-- Footer -->
