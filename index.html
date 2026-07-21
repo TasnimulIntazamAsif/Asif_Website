@@ -34,11 +34,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
         h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Poppins', 'Inter', ui-sans-serif, system-ui, sans-serif; }
+        .hero-name {
+            font-family: 'Playfair Display', 'Poppins', serif;
+            letter-spacing: 0.5px;
+        }
+        .hero-tagline {
+            font-family: 'Sora', 'Poppins', sans-serif;
+            letter-spacing: 0.3px;
+        }
+        .hero-desc {
+            font-family: 'Sora', 'Inter', sans-serif;
+            letter-spacing: 0.2px;
+        }
         .pattern-bg {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
@@ -54,6 +66,19 @@
         /* Layered, stylish hero background */
         .hero-base {
             background: linear-gradient(135deg, #0f1f4d 0%, #1e3a8a 35%, #1d4ed8 65%, #0ea5e9 100%);
+        }
+        .hero-photo {
+            background-image: url("image/asif image.png");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+        .hero-photo-overlay {
+            background: linear-gradient(135deg, rgba(15,31,77,0.55) 0%, rgba(30,58,138,0.45) 40%, rgba(14,165,233,0.3) 100%);
+        }
+        .hero-text-shadow,
+        .hero-text-shadow * {
+            text-shadow: 0 2px 6px rgba(0,0,0,0.85), 0 1px 14px rgba(0,0,0,0.6);
         }
         .hero-aurora {
             background: linear-gradient(120deg, rgba(56,189,248,0.35), rgba(99,102,241,0.3), rgba(14,165,233,0.35), rgba(59,130,246,0.3));
@@ -218,6 +243,46 @@
                         <span>Contact</span>
                     </a>
                 </nav>
+                <!-- CV + Social Links -->
+                <div class="hidden md:flex items-center gap-2">
+                    <a href="#"
+                        class="flex items-center gap-1.5 font-semibold border-2 bg-transparent rounded-lg text-sm px-3 py-2 button-animate cta-btn shadow-md focus:outline-none"
+                        id="download-cv-btn"
+                    >
+                        <i class="fas fa-download text-sm"></i>
+                        <span>CV</span>
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=intazam2896@gmail.com" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center justify-center w-10 h-10 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
+                        title="Email"
+                    >
+                        <i class="fas fa-envelope text-lg"></i>
+                    </a>
+                    <a href="tel:+8801871446262" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center justify-center w-10 h-10 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
+                        title="Call"
+                    >
+                        <i class="fas fa-phone-alt text-lg"></i>
+                    </a>
+                    <a href="https://wa.me/8801871446262" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center justify-center w-10 h-10 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
+                        title="WhatsApp"
+                    >
+                        <i class="fab fa-whatsapp text-lg"></i>
+                    </a>
+                    <a href="https://github.com/TasnimulIntazamAsif" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center justify-center w-10 h-10 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
+                        title="GitHub"
+                    >
+                        <i class="fab fa-github text-lg"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/asif2896" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center justify-center w-10 h-10 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
+                        title="LinkedIn"
+                    >
+                        <i class="fab fa-linkedin text-lg"></i>
+                    </a>
+                </div>
                 <!-- Mobile menu button -->
                 <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md nav-link bg-transparent button-animate hover:bg-blue-100/40 hover:scale-105 focus:outline-none" onclick="toggleMobileMenu()">
                     <i class="fas fa-bars text-xl"></i>
@@ -251,13 +316,55 @@
                         <span>Contact</span>
                     </a>
                 </nav>
+                <!-- CV + Social Links -->
+                <div class="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-white/10">
+                    <a href="#"
+                        class="flex items-center gap-1.5 font-semibold border-2 bg-transparent rounded-lg text-xs px-3 py-1.5 button-animate cta-btn shadow-md focus:outline-none"
+                        id="download-cv-btn-mobile"
+                    >
+                        <i class="fas fa-download text-xs"></i>
+                        <span>Download CV</span>
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=intazam2896@gmail.com" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center justify-center w-9 h-9 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
+                        title="Email"
+                    >
+                        <i class="fas fa-envelope text-sm"></i>
+                    </a>
+                    <a href="tel:+8801871446262" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center justify-center w-9 h-9 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
+                        title="Call"
+                    >
+                        <i class="fas fa-phone-alt text-sm"></i>
+                    </a>
+                    <a href="https://wa.me/8801871446262" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center justify-center w-9 h-9 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
+                        title="WhatsApp"
+                    >
+                        <i class="fab fa-whatsapp text-sm"></i>
+                    </a>
+                    <a href="https://github.com/TasnimulIntazamAsif" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center justify-center w-9 h-9 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
+                        title="GitHub"
+                    >
+                        <i class="fab fa-github text-sm"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/asif2896" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center justify-center w-9 h-9 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
+                        title="LinkedIn"
+                    >
+                        <i class="fab fa-linkedin text-sm"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" class="min-h-screen flex items-start justify-center relative overflow-hidden pt-14 sm:pt-16">
         <div class="absolute inset-0 hero-base"></div>
+        <div class="absolute inset-0 hero-photo"></div>
+        <div class="absolute inset-0 hero-photo-overlay"></div>
         <div class="absolute inset-0 hero-aurora"></div>
         <div class="absolute inset-0 hero-grid"></div>
         <div class="absolute inset-0 opacity-10 pattern-bg"></div>
@@ -269,89 +376,17 @@
         <div class="absolute inset-0 hero-vignette"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="flex flex-col items-center space-y-8">
-                <!-- Availability Badge -->
-                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 shadow-lg">
-                    <span class="relative flex h-2.5 w-2.5">
-                        <span class="status-dot absolute inline-flex h-full w-full rounded-full bg-green-400"></span>
-                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400"></span>
-                    </span>
-                    <span class="text-xs sm:text-sm font-semibold text-white tracking-wide">Available for Freelance Projects</span>
-                </div>
-                <!-- Profile Image -->
-                <div class="relative">
-                    <div class="avatar-ring rounded-full shadow-2xl">
-                        <div class="w-32 h-32 sm:w-36 sm:h-36 bg-gray-300 rounded-full flex items-center justify-center overflow-hidden border-4 border-blue-900">
-                            <img
-                                src="https://i.ibb.co/fVzLpGbG/Whats-App-Image-2025-05-06-at-15-47-46-0d88389f.jpg"
-                                alt="Tasnimul Intazam Asif"
-                                class="w-full h-full object-cover rounded-full"
-                            />
-                        </div>
-                    </div>
-                    <div class="absolute -bottom-1 -right-1 w-10 h-10 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg ring-4 ring-blue-900">
-                        <i class="fas fa-arrow-right text-white text-lg"></i>
-                    </div>
-                </div>
-                <div class="text-white space-y-3">
-                    <h1 class="font-heading text-2xl sm:text-3xl md:text-5xl font-bold leading-tight tracking-tight">
+                <div class="text-white space-y-3 hero-text-shadow">
+                    <h1 class="hero-name text-2xl sm:text-3xl md:text-5xl font-bold leading-tight tracking-tight">
                         Tasnimul Intazam Asif
                     </h1>
-                    <p class="text-sm sm:text-base md:text-lg bg-gradient-to-r from-sky-300 via-blue-100 to-sky-300 bg-clip-text text-transparent max-w-3xl mx-auto" style="font-weight:700;">
-                        Machine Learning Specialist | Academic Research Expert | Freelance Data Analyst
+                    <p class="hero-tagline text-base sm:text-xl md:text-2xl text-white max-w-3xl mx-auto" style="font-weight:800; text-shadow: 0 2px 8px rgba(0,0,0,0.9), 0 1px 20px rgba(0,0,0,0.7);">
+                        Python Developer | AI Engineer | Researcher | Data Analyst
                     </p>
-                    <p class="text-xs sm:text-sm text-blue-200 max-w-2xl mx-auto font-bold" style="color:#fff !important;">
-                        Transforming data into insights and research into publications.
-                        Specialized in machine learning, academic writing, and data analysis.
-                    </p>
-                </div>
-                <!-- Call to Action Buttons: Hire Me + Download CV in one row; others + github/linkedin icons only below -->
-                <div class="relative mt-8 w-full max-w-lg mx-auto flex flex-col items-center">
-                    <!-- First line: Hire Me and Download CV -->
-                    <div class="flex flex-wrap items-center justify-center gap-3 w-full">
-
-                        <!-- Download CV: force download of correct file and filename via JS -->
-                        <a
-                            href="#"
-                            class="flex items-center gap-2 font-semibold border-2 bg-transparent rounded-xl text-base px-6 py-3 min-w-[144px] justify-center button-animate cta-btn shadow-lg shadow-blue-900/30 focus:outline-none"
-                            id="download-cv-btn"
-                        >
-                            <i class="fas fa-download"></i>
-                            <span>Download CV</span>
-                        </a>
-                    </div>
-                    <!-- Second line: only icons for Email, Call, WhatsApp, Github, LinkedIn -->
-                    <div class="flex flex-wrap items-center justify-center gap-3 mt-4">
-                        <a href="mailto:intazam2896@gmail.com"
-                            class="flex items-center justify-center w-12 h-12 rounded-full border-2 bg-transparent button-animate cta-btn shadow-md focus:outline-none"
-                            title="Email"
-                        >
-                            <i class="fas fa-envelope text-xl"></i>
-                        </a>
-                        <a href="tel:+8801871446262"
-                            class="flex items-center justify-center w-12 h-12 rounded-full border-2 bg-transparent button-animate cta-btn shadow-md focus:outline-none"
-                            title="Call"
-                        >
-                            <i class="fas fa-phone-alt text-xl"></i>
-                        </a>
-                        <a href="https://wa.me/8801871446262" target="_blank" rel="noopener noreferrer"
-                            class="flex items-center justify-center w-12 h-12 rounded-full border-2 bg-transparent button-animate cta-btn shadow-md focus:outline-none"
-                            title="WhatsApp"
-                        >
-                            <i class="fab fa-whatsapp text-xl"></i>
-                        </a>
-                        <a href="https://github.com/TasnimulIntazamAsif" target="_blank" rel="noopener noreferrer"
-                            class="flex items-center justify-center w-12 h-12 rounded-full border-2 bg-transparent button-animate cta-btn shadow-md focus:outline-none"
-                            title="GitHub"
-                        >
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/asif2896" target="_blank" rel="noopener noreferrer"
-                            class="flex items-center justify-center w-12 h-12 rounded-full border-2 bg-transparent button-animate cta-btn shadow-md focus:outline-none"
-                            title="LinkedIn"
-                        >
-                            <i class="fab fa-linkedin text-xl"></i>
-                        </a>
-                    </div>
+<!--                    <p class="hero-desc text-xs sm:text-sm text-blue-200 max-w-2xl mx-auto font-bold" style="color:#fff !important;">-->
+<!--                        Transforming data into insights and research into publications.-->
+<!--                        Specialized in machine learning, academic writing, and data analysis.-->
+<!--                    </p>-->
                 </div>
             </div>
         </div>
@@ -386,10 +421,10 @@
                         <a href="https://wa.me/8801871446262" target="_blank" rel="noopener noreferrer" class="bg-transparent hover:bg-green-500/10 p-2 rounded-box transition-all duration-200 button-animate" title="WhatsApp">
                             <i class="fab fa-whatsapp text-green-600 text-md footer-colored"></i>
                         </a>
-                        <a href="mailto:intazam2896@gmail.com" class="bg-transparent hover:bg-blue-600/10 p-2 rounded-box transition-all duration-200 button-animate" title="Gmail Email">
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=intazam2896@gmail.com" target="_blank" rel="noopener noreferrer" class="bg-transparent hover:bg-blue-600/10 p-2 rounded-box transition-all duration-200 button-animate" title="Gmail Email">
                             <i class="fas fa-envelope text-blue-500 text-md footer-colored"></i>
                         </a>
-                        <a href="tel:+8801871446262" class="bg-transparent hover:bg-blue-600/10 p-2 rounded-box transition-all duration-200 button-animate" title="Call">
+                        <a href="tel:+8801871446262" target="_blank" rel="noopener noreferrer" class="bg-transparent hover:bg-blue-600/10 p-2 rounded-box transition-all duration-200 button-animate" title="Call">
                             <i class="fas fa-phone-alt text-blue-400 text-md footer-colored"></i>
                         </a>
                     </div>
@@ -507,22 +542,23 @@
             }
 
             // Download CV custom logic
-            var cvBtn = document.getElementById('download-cv-btn');
-            if (cvBtn) {
-                cvBtn.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    // The file should exist in the root directory or public folder with this exact filename:
-                    var fileUrl = "Tasnimul Intazam Asif CV.pdf";
-                    var fileName = "Tasnimul Intazam Asif CV.pdf";
-                    var link = document.createElement('a');
-                    link.href = fileUrl;
-                    link.download = fileName;
-                    // Required for cross-browser support (esp. Firefox) to trigger download
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                });
+            function downloadCV(e) {
+                e.preventDefault();
+                // The file should exist in the root directory or public folder with this exact filename:
+                var fileUrl = "Tasnimul Intazam Asif CV.pdf";
+                var fileName = "Tasnimul Intazam Asif CV.pdf";
+                var link = document.createElement('a');
+                link.href = fileUrl;
+                link.download = fileName;
+                // Required for cross-browser support (esp. Firefox) to trigger download
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
             }
+            ['download-cv-btn', 'download-cv-btn-mobile'].forEach(function (id) {
+                var btn = document.getElementById(id);
+                if (btn) btn.addEventListener('click', downloadCV);
+            });
         });
     </script>
 </body>
