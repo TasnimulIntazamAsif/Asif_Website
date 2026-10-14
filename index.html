@@ -3,29 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasnimul Intazam Asif - Portfolio</title>
+    <title>Tasnimul Intazam Asif — Python Developer, AI Engineer &amp; Data Analyst</title>
+    <meta name="description" content="Portfolio of Tasnimul Intazam Asif — Python developer, AI engineer and academic research expert specialising in machine learning, data analysis and research support.">
+    <meta name="theme-color" content="#4F46E5">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234F46E5'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='26' font-weight='700' fill='%23FFFFFF' text-anchor='middle'%3ETA%3C/text%3E%3C/svg%3E">
+    <script>document.documentElement.className += ' js';</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    animation: {
-                        'button-hover': 'buttonBouncy 0.4s cubic-bezier(.43,1.1,.33,1.01)'
-                    },
-                    keyframes: {
-                        buttonBouncy: {
-                            '0%':   { transform: 'scale(1)' },
-                            '60%':  { transform: 'scale(1.08)' },
-                            '80%':  { transform: 'scale(0.98)' },
-                            '100%': { transform: 'scale(1)' },
-                        }
-                    },
                     colors: {
-                        'primary': '#1e3a8a',
-                        'primary-light': '#60a5fa',
-                        'primary-dark': '#2563eb',
-                        'cta-init': '#0e7490',
-                        'cta-hover': '#0369a1',
+                        brand: {
+                            50: '#F0EEFD', 100: '#E0DCFB', 200: '#C2B9F8', 300: '#9B8CF2', 400: '#7A67ED',
+                            500: '#6252E8', 600: '#4F46E5', 700: '#4238C2', 800: '#362E9E', 900: '#2A2478', 950: '#1A1650'
+                        },
+                        neutral: {
+                            0: '#FFFFFF', 50: '#FAFAF9', 100: '#F0EFEC', 200: '#E2E0DA', 300: '#CBC8BF', 400: '#A8A499',
+                            500: '#847E71', 600: '#665F52', 700: '#4A4640', 800: '#38352F', 900: '#28251F', 950: '#1A1815', 1000: '#0F0D0B'
+                        },
+                        success: { 100: '#DDF6E8', 500: '#1E9E5A', 700: '#116B3C' },
+                        warning: { 100: '#FFF1CC', 500: '#E5A000', 700: '#9C6B00' },
+                        danger:  { 100: '#FDE1E1', 500: '#DC2626', 700: '#9C1A1A' },
+                        info:    { 100: '#DCE7FD', 500: '#2563EB', 700: '#1D4ED8' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        serif: ['"Source Serif 4"', 'Georgia', 'serif']
+                    },
+                    boxShadow: {
+                        e100: '0 1px 2px rgba(15,13,11,.06), 0 1px 1px rgba(15,13,11,.04)',
+                        e200: '0 2px 6px rgba(15,13,11,.08), 0 1px 2px rgba(15,13,11,.06)',
+                        e300: '0 8px 16px rgba(15,13,11,.10), 0 2px 4px rgba(15,13,11,.06)'
+                    },
+                    transitionTimingFunction: {
+                        standard: 'cubic-bezier(0.2, 0, 0, 1)'
                     }
                 }
             }
@@ -34,525 +46,439 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
     <style>
+        /* ============================================================
+           Design tokens — Web App Design System v1.0 (Website surface)
+           ============================================================ */
+        :root {
+            --brand-50:#F0EEFD; --brand-100:#E0DCFB; --brand-200:#C2B9F8; --brand-300:#9B8CF2; --brand-400:#7A67ED;
+            --brand-500:#6252E8; --brand-600:#4F46E5; --brand-700:#4238C2; --brand-800:#362E9E; --brand-900:#2A2478; --brand-950:#1A1650;
+            --n-0:#FFFFFF; --n-50:#FAFAF9; --n-100:#F0EFEC; --n-200:#E2E0DA; --n-300:#CBC8BF; --n-400:#A8A499;
+            --n-500:#847E71; --n-600:#665F52; --n-700:#4A4640; --n-800:#38352F; --n-900:#28251F; --n-950:#1A1815;
+            --shadow-100: 0 1px 2px rgba(15,13,11,.06), 0 1px 1px rgba(15,13,11,.04);
+            --shadow-200: 0 2px 6px rgba(15,13,11,.08), 0 1px 2px rgba(15,13,11,.06);
+            --ease-standard: cubic-bezier(.2, 0, 0, 1);
+        }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
-        h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Poppins', 'Inter', ui-sans-serif, system-ui, sans-serif; }
-        .hero-name {
-            font-family: 'Playfair Display', 'Poppins', serif;
-            letter-spacing: 0.5px;
+        body {
+            font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+            color: var(--n-900);
+            background: var(--n-0);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
-        .hero-tagline {
-            font-family: 'Sora', 'Poppins', sans-serif;
-            letter-spacing: 0.3px;
+        .font-display { font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif; font-weight: 600; letter-spacing: -.01em; }
+
+        /* Layout */
+        .container-page { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 16px; }
+        @media (min-width: 640px)  { .container-page { padding-inline: 24px; } }
+        @media (min-width: 1024px) { .container-page { padding-inline: 48px; } }
+
+        /* Focus — two-tone keyboard ring (shadow.focus) */
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--n-0), 0 0 0 4px var(--brand-600);
         }
-        .hero-desc {
-            font-family: 'Sora', 'Inter', sans-serif;
-            letter-spacing: 0.2px;
+
+        /* Type scale (Website surface) */
+        .display-hero { font-size: clamp(36px, 6vw, 68px); line-height: 1.04; }
+        .t-h1 { font-size: clamp(30px, 4.5vw, 44px); line-height: 1.12; letter-spacing: -.005em; font-weight: 700; }
+        .t-h2 { font-size: clamp(24px, 3vw, 36px); line-height: 1.16; letter-spacing: -.005em; font-weight: 700; }
+        .t-h3 { font-size: 24px; line-height: 1.2; font-weight: 600; }
+        .overline { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            font-weight: 600; font-size: 14px; line-height: 1; border: 1px solid transparent; border-radius: 8px;
+            cursor: pointer; text-decoration: none;
+            transition: background-color .15s var(--ease-standard), color .15s var(--ease-standard),
+                        border-color .15s var(--ease-standard), box-shadow .15s var(--ease-standard), transform .1s var(--ease-standard);
         }
-        .pattern-bg {
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        .btn-lg { height: 48px; padding: 0 20px; }
+        .btn-md { height: 40px; padding: 0 16px; }
+        .btn-sm { height: 32px; padding: 0 12px; border-radius: 4px; font-size: 13px; }
+        .btn:active { transform: scale(.98); }
+        .btn-primary { background: var(--brand-600); color: #fff; }
+        .btn-primary:hover { background: var(--brand-700); }
+        .btn-primary:active { background: var(--brand-800); }
+        .btn-outline { background: var(--n-0); color: var(--n-900); border-color: var(--n-200); box-shadow: var(--shadow-100); }
+        .btn-outline:hover { border-color: var(--n-400); background: var(--n-50); }
+        .btn-ghost { background: transparent; color: var(--n-700); }
+        .btn-ghost:hover { background: var(--n-100); color: var(--n-900); }
+        .btn-inverse { background: var(--n-0); color: var(--brand-700); }
+        .btn-inverse:hover { background: var(--brand-50); }
+        .btn-outline-inverse { background: transparent; color: #fff; border-color: rgba(255,255,255,.4); }
+        .btn-outline-inverse:hover { background: rgba(255,255,255,.1); border-color: #fff; }
+        .btn-icon { width: 44px; height: 44px; padding: 0; }
+
+        /* Navigation */
+        .nav-link {
+            display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 9999px;
+            font-size: 14px; font-weight: 500; color: var(--n-600); text-decoration: none;
+            transition: color .15s var(--ease-standard), background-color .15s var(--ease-standard);
         }
-        @keyframes gradientMove {
-            0% {background-position: 0% 50%;}
-            50% {background-position: 100% 50%;}
-            100% {background-position: 0% 50%;}
+        .nav-link i { font-size: 12px; }
+        .nav-link:hover { background: var(--n-100); color: var(--n-900); }
+        .nav-link.active { background: var(--brand-50); color: var(--brand-700); font-weight: 600; }
+
+        /* Surfaces */
+        .card {
+            background: var(--n-0); border: 1px solid var(--n-200); border-radius: 16px; box-shadow: var(--shadow-100);
+            transition: transform .3s var(--ease-standard), box-shadow .3s var(--ease-standard), border-color .3s var(--ease-standard);
         }
-        .animate-gradient-move {
-            background-size: 200% 200%;
-            animation: gradientMove 6s ease-in-out infinite;
+        .card-hover:hover { transform: translateY(-4px); box-shadow: var(--shadow-200); }
+        .icon-tile { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; background: var(--brand-50); color: var(--brand-700); font-size: 18px; flex: none; }
+        .icon-tile-sm { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 8px; background: var(--brand-50); color: var(--brand-700); font-size: 16px; flex: none; }
+        .chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; border-radius: 9999px; background: var(--brand-50); color: var(--brand-700); font-size: 12px; font-weight: 500; }
+
+        /* Links */
+        .link { color: var(--brand-700); font-weight: 500; text-decoration: none; transition: color .15s var(--ease-standard); }
+        .link:hover { color: var(--brand-800); text-decoration: underline; text-underline-offset: 2px; }
+        .link-arrow { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--brand-700); text-decoration: none; transition: color .15s var(--ease-standard); }
+        .link-arrow i { transition: transform .15s var(--ease-standard); }
+        .link-arrow:hover { color: var(--brand-800); }
+        .link-arrow:hover i { transform: translateX(2px); }
+        .social-text { display: inline-flex; align-items: center; gap: 8px; height: 44px; font-size: 14px; font-weight: 500; color: var(--n-600); text-decoration: none; transition: color .15s var(--ease-standard); }
+        .social-text:hover { color: var(--brand-700); }
+
+        /* Icon buttons */
+        .icon-btn {
+            display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px;
+            border-radius: 8px; border: 1px solid var(--n-200); background: var(--n-0); color: var(--n-700); font-size: 16px;
+            cursor: pointer; transition: background-color .15s var(--ease-standard), border-color .15s var(--ease-standard), color .15s var(--ease-standard);
         }
-        /* Layered, stylish hero background */
-        .hero-base {
-            background: linear-gradient(135deg, #0f1f4d 0%, #1e3a8a 35%, #1d4ed8 65%, #0ea5e9 100%);
+        .icon-btn:hover { background: var(--n-100); color: var(--n-900); }
+        .icon-btn-dark {
+            display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px;
+            border-radius: 8px; border: 1px solid var(--n-800); background: transparent; color: var(--n-400); font-size: 16px;
+            cursor: pointer; transition: background-color .15s var(--ease-standard), border-color .15s var(--ease-standard), color .15s var(--ease-standard);
         }
-        .hero-photo {
-            background-image: url("image/asif image.png");
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-        }
-        .hero-photo-overlay {
-            background: linear-gradient(135deg, rgba(15,31,77,0.55) 0%, rgba(30,58,138,0.45) 40%, rgba(14,165,233,0.3) 100%);
-        }
-        .hero-text-shadow,
-        .hero-text-shadow * {
-            text-shadow: 0 2px 6px rgba(0,0,0,0.85), 0 1px 14px rgba(0,0,0,0.6);
-        }
-        .hero-aurora {
-            background: linear-gradient(120deg, rgba(56,189,248,0.35), rgba(99,102,241,0.3), rgba(14,165,233,0.35), rgba(59,130,246,0.3));
-            background-size: 300% 300%;
-            animation: gradientMove 14s ease-in-out infinite;
-            mix-blend-mode: screen;
+        .icon-btn-dark:hover { background: var(--brand-600); border-color: var(--brand-600); color: #fff; }
+
+        /* Footer */
+        .footer-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--n-400); text-decoration: none; transition: color .15s var(--ease-standard); }
+        .footer-link i { width: 16px; text-align: center; color: var(--n-500); transition: color .15s var(--ease-standard); }
+        .footer-link:hover { color: #fff; }
+        .footer-link:hover i { color: var(--brand-300); }
+
+        /* Decorative */
+        .hero-glow {
+            background:
+                radial-gradient(48% 42% at 12% -5%, var(--brand-50) 0%, rgba(255,255,255,0) 68%),
+                radial-gradient(38% 36% at 92% 4%, var(--brand-100) 0%, rgba(255,255,255,0) 70%);
         }
         .hero-grid {
             background-image:
-                linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
-            background-size: 44px 44px;
-            -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 40%, transparent 90%);
-                    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 40%, transparent 90%);
+                linear-gradient(to right, var(--n-100) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--n-100) 1px, transparent 1px);
+            background-size: 48px 48px;
+            -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 0%, #000 25%, transparent 78%);
+                    mask-image: radial-gradient(ellipse 75% 70% at 50% 0%, #000 25%, transparent 78%);
         }
-        .hero-vignette {
-            background: radial-gradient(ellipse 90% 70% at 50% 45%, transparent 45%, rgba(4,10,35,0.55) 100%);
+        .banner-grid {
+            background-image:
+                linear-gradient(to right, rgba(255,255,255,.07) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,.07) 1px, transparent 1px);
+            background-size: 48px 48px;
+            -webkit-mask-image: linear-gradient(to bottom, #000, transparent);
+                    mask-image: linear-gradient(to bottom, #000, transparent);
         }
-        .button-animate {
-            transition: background 0.2s, color 0.2s, border 0.2s, transform 0.2s;
-        }
-        .button-animate:active {
-            transform: scale(0.97);
-        }
-        /* Decorative hero blobs */
-        .hero-blob {
-            position: absolute;
-            border-radius: 9999px;
-            filter: blur(60px);
-            opacity: 0.35;
-            pointer-events: none;
-        }
-        @keyframes floatBlob {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(20px, -30px) scale(1.08); }
-        }
-        .hero-blob-1 { animation: floatBlob 9s ease-in-out infinite; }
-        .hero-blob-2 { animation: floatBlob 11s ease-in-out infinite reverse; }
-        .hero-blob-3 { animation: floatBlob 13s ease-in-out infinite; opacity: 0.25; }
-        .hero-blob-4 { animation: floatBlob 10s ease-in-out infinite reverse; opacity: 0.22; }
-        /* Availability badge */
-        .status-dot {
-            box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
-            animation: pulseDot 2s infinite;
-        }
-        @keyframes pulseDot {
-            0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55); }
-            70% { box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
-        }
-        /* Profile image gradient ring (static, no rotation) */
-        .avatar-ring {
-            background: conic-gradient(from 180deg, #60a5fa, #38bdf8, #0ea5e9, #60a5fa);
-            padding: 4px;
-        }
-        @keyframes bounceChevron {
-            0%, 100% { transform: translateY(0); opacity: 0.6; }
-            50% { transform: translateY(8px); opacity: 1; }
-        }
-        .scroll-cue i { animation: bounceChevron 2s ease-in-out infinite; }
-        /* Custom adjustments for before and after hover color */
-        .cta-btn {
-            color: #fff !important;
-            border-color: #0369a1 !important;
-            background: transparent !important;
-            font-weight: bold !important;
-        }
-        .cta-btn:hover, .cta-btn:focus-visible {
-            background: #0369a1 !important;
-            color: #fff !important;
-            border-color: #0369a1 !important;
-        }
-        .cta-btn i {
-            color: #fff !important;
-            transition: color 0.2s;
-        }
-        .cta-btn:hover i, .cta-btn:focus-visible i {
-            color: #fff !important;
-        }
+        .banner-glow { background: radial-gradient(60% 90% at 85% 10%, rgba(122,103,237,.45) 0%, rgba(122,103,237,0) 60%); }
 
-        /* Navigation links adjustment */
-        .nav-link {
-            color: #fff !important;
-            font-weight: bold !important;
-            transition: color 0.2s;
-            position: relative;
+        /* Reveal on scroll (progressive enhancement) */
+        .js .reveal { opacity: 0; transform: translateY(16px); }
+        .js .reveal.is-visible {
+            opacity: 1; transform: none;
+            transition: opacity .4s var(--ease-standard), transform .4s var(--ease-standard);
         }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 0;
-            height: 2px;
-            border-radius: 2px;
-            background: #38bdf8;
-            transition: width 0.25s ease;
-        }
-        .nav-link:hover, .nav-link:focus-visible {
-            color: #0369a1 !important;
-        }
-        .nav-link:hover::after, .nav-link:focus-visible::after {
-            width: 100%;
-        }
-        /* Fix nav link visibility once header turns solid white on scroll */
-        #header.bg-white .nav-link {
-            color: #1e293b !important;
-        }
-        #header.bg-white .nav-link:hover,
-        #header.bg-white .nav-link:focus-visible {
-            color: #0369a1 !important;
-        }
-        .quick-link {
-            color: #fff !important;
-            font-weight: bold !important;
-            transition: color 0.2s;
-        }
-        .quick-link:hover, .quick-link:focus-visible {
-            color: #0ea5e9 !important;
-        }
-        /* Section Titles and Bold Texts */
-        h1, h2, h3, h4, h5, h6,
-        .font-bold, .font-semibold, b, strong {
-            color: #fff !important;
-            font-weight: bold !important;
-        }
-        /* Footer quick info colored icons etc. keep their original color where desired */
-        .footer-colored {
-            color: inherit !important;
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .js .reveal { opacity: 1; transform: none; }
+            .card, .btn, .icon-btn, .icon-btn-dark { transition: none; }
         }
     </style>
 </head>
-<body>
-    <!-- Header -->
-    <header id="header" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-end items-center py-4">
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex space-x-4 mr-6">
-                    <a href="index.html#home" class="flex items-center space-x-1 font-medium nav-link transition-colors text-base">
-                        <i class="fas fa-home text-sm"></i>
-                        <span>Home</span>
-                    </a>
-                    <a href="about.html" class="flex items-center space-x-1 font-medium nav-link transition-colors text-base">
-                        <i class="fas fa-user text-sm"></i>
-                        <span>About</span>
-                    </a>
-                    <a href="services.html" class="flex items-center space-x-1 font-medium nav-link transition-colors text-base">
-                        <i class="fas fa-briefcase text-sm"></i>
-                        <span>Services</span>
-                    </a>
-                    <a href="portfolio.html" class="flex items-center space-x-1 font-medium nav-link transition-colors text-base">
-                        <i class="fas fa-code text-sm"></i>
-                        <span>Portfolio</span>
-                    </a>
+<body class="bg-white text-neutral-900">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-neutral-900 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">Skip to content</a>
 
-                    <a href="contact.html" class="flex items-center space-x-1 font-medium nav-link transition-colors text-base">
-                        <i class="fas fa-envelope text-sm"></i>
-                        <span>Contact</span>
-                    </a>
+    <!-- Header -->
+    <header class="fixed inset-x-0 top-0 z-50 border-b border-neutral-200 bg-white/85 backdrop-blur-md">
+        <div class="container-page">
+            <div class="flex h-16 items-center justify-between gap-4">
+                <a href="index.html" class="flex items-center gap-3" aria-label="Tasnimul Intazam Asif — home">
+                    <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-600 text-sm font-bold text-white" aria-hidden="true">TA</span>
+                    <span class="hidden text-[15px] font-semibold text-neutral-900 sm:block">Tasnimul Intazam Asif</span>
+                </a>
+
+                <!-- Desktop navigation -->
+                <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+                    <a href="index.html" class="nav-link active" aria-current="page"><i class="fas fa-home" aria-hidden="true"></i>Home</a>
+                    <a href="about.html" class="nav-link"><i class="fas fa-user" aria-hidden="true"></i>About</a>
+                    <a href="services.html" class="nav-link"><i class="fas fa-briefcase" aria-hidden="true"></i>Services</a>
+                    <a href="portfolio.html" class="nav-link"><i class="fas fa-code" aria-hidden="true"></i>Portfolio</a>
+                    <a href="contact.html" class="nav-link"><i class="fas fa-envelope" aria-hidden="true"></i>Contact</a>
                 </nav>
-                <!-- CV + Social Links -->
-                <div class="hidden md:flex items-center gap-2">
-                    <a href="#"
-                        class="flex items-center gap-1.5 font-semibold border-2 bg-transparent rounded-lg text-sm px-3 py-2 button-animate cta-btn shadow-md focus:outline-none"
-                        id="download-cv-btn"
-                    >
-                        <i class="fas fa-download text-sm"></i>
-                        <span>CV</span>
-                    </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=intazam2896@gmail.com" target="_blank" rel="noopener noreferrer"
-                        class="flex items-center justify-center w-10 h-10 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
-                        title="Email"
-                    >
-                        <i class="fas fa-envelope text-lg"></i>
-                    </a>
-                    <a href="tel:+8801871446262" target="_blank" rel="noopener noreferrer"
-                        class="flex items-center justify-center w-10 h-10 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
-                        title="Call"
-                    >
-                        <i class="fas fa-phone-alt text-lg"></i>
-                    </a>
-                    <a href="https://wa.me/8801871446262" target="_blank" rel="noopener noreferrer"
-                        class="flex items-center justify-center w-10 h-10 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
-                        title="WhatsApp"
-                    >
-                        <i class="fab fa-whatsapp text-lg"></i>
-                    </a>
-                    <a href="https://github.com/TasnimulIntazamAsif" target="_blank" rel="noopener noreferrer"
-                        class="flex items-center justify-center w-10 h-10 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
-                        title="GitHub"
-                    >
-                        <i class="fab fa-github text-lg"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/asif2896" target="_blank" rel="noopener noreferrer"
-                        class="flex items-center justify-center w-10 h-10 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
-                        title="LinkedIn"
-                    >
-                        <i class="fab fa-linkedin text-lg"></i>
-                    </a>
+
+                <div class="flex items-center gap-2">
+                    <div class="hidden sm:block">
+                        <a href="#" id="download-cv-btn" class="btn btn-md btn-primary">
+                            <i class="fas fa-download" aria-hidden="true"></i>Download CV
+                        </a>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn" type="button" class="icon-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+                            <i class="fas fa-bars" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 </div>
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md nav-link bg-transparent button-animate hover:bg-blue-100/40 hover:scale-105 focus:outline-none" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
             </div>
-            <!-- Mobile Navigation -->
-            <div id="mobile-menu" class="hidden md:hidden pb-4">
-                <nav class="flex flex-col space-y-2">
-                    <a href="index.html#home" class="flex items-center space-x-2 font-medium nav-link transition-colors text-base">
-                        <i class="fas fa-home text-sm"></i>
-                        <span>Home</span>
-                    </a>
-                    <a href="about.html" class="flex items-center space-x-2 font-medium nav-link transition-colors text-base">
-                        <i class="fas fa-user text-sm"></i>
-                        <span>About</span>
-                    </a>
-                    <a href="services.html" class="flex items-center space-x-2 font-medium nav-link transition-colors text-sm">
-                        <i class="fas fa-briefcase text-xs"></i>
-                        <span>Services</span>
-                    </a>
-                    <a href="portfolio.html" class="flex items-center space-x-2 font-medium nav-link transition-colors text-sm">
-                        <i class="fas fa-code text-xs"></i>
-                        <span>Portfolio</span>
-                    </a>
-                    <a href="blog.html" class="flex items-center space-x-2 font-medium nav-link transition-colors text-sm">
-                        <i class="fas fa-book-open text-xs"></i>
-                        <span>Blog</span>
-                    </a>
-                    <a href="contact.html" class="flex items-center space-x-2 font-medium nav-link transition-colors text-sm">
-                        <i class="fas fa-envelope text-xs"></i>
-                        <span>Contact</span>
-                    </a>
+
+            <!-- Mobile navigation -->
+            <div id="mobile-menu" class="hidden border-t border-neutral-200 py-4 md:hidden">
+                <nav class="flex flex-col gap-1" aria-label="Mobile">
+                    <a href="index.html" class="nav-link active" aria-current="page"><i class="fas fa-home" aria-hidden="true"></i>Home</a>
+                    <a href="about.html" class="nav-link"><i class="fas fa-user" aria-hidden="true"></i>About</a>
+                    <a href="services.html" class="nav-link"><i class="fas fa-briefcase" aria-hidden="true"></i>Services</a>
+                    <a href="portfolio.html" class="nav-link"><i class="fas fa-code" aria-hidden="true"></i>Portfolio</a>
+                    <a href="contact.html" class="nav-link"><i class="fas fa-envelope" aria-hidden="true"></i>Contact</a>
                 </nav>
-                <!-- CV + Social Links -->
-                <div class="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-white/10">
-                    <a href="#"
-                        class="flex items-center gap-1.5 font-semibold border-2 bg-transparent rounded-lg text-xs px-3 py-1.5 button-animate cta-btn shadow-md focus:outline-none"
-                        id="download-cv-btn-mobile"
-                    >
-                        <i class="fas fa-download text-xs"></i>
-                        <span>Download CV</span>
-                    </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=intazam2896@gmail.com" target="_blank" rel="noopener noreferrer"
-                        class="flex items-center justify-center w-9 h-9 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
-                        title="Email"
-                    >
-                        <i class="fas fa-envelope text-sm"></i>
-                    </a>
-                    <a href="tel:+8801871446262" target="_blank" rel="noopener noreferrer"
-                        class="flex items-center justify-center w-9 h-9 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
-                        title="Call"
-                    >
-                        <i class="fas fa-phone-alt text-sm"></i>
-                    </a>
-                    <a href="https://wa.me/8801871446262" target="_blank" rel="noopener noreferrer"
-                        class="flex items-center justify-center w-9 h-9 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
-                        title="WhatsApp"
-                    >
-                        <i class="fab fa-whatsapp text-sm"></i>
-                    </a>
-                    <a href="https://github.com/TasnimulIntazamAsif" target="_blank" rel="noopener noreferrer"
-                        class="flex items-center justify-center w-9 h-9 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
-                        title="GitHub"
-                    >
-                        <i class="fab fa-github text-sm"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/asif2896" target="_blank" rel="noopener noreferrer"
-                        class="flex items-center justify-center w-9 h-9 rounded-full border-2 bg-transparent button-animate cta-btn shadow-sm focus:outline-none"
-                        title="LinkedIn"
-                    >
-                        <i class="fab fa-linkedin text-sm"></i>
-                    </a>
-                </div>
+                <a href="#" id="download-cv-btn-mobile" class="btn btn-md btn-primary mt-4 w-full">
+                    <i class="fas fa-download" aria-hidden="true"></i>Download CV
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-start justify-center relative overflow-hidden pt-14 sm:pt-16">
-        <div class="absolute inset-0 hero-base"></div>
-        <div class="absolute inset-0 hero-photo"></div>
-        <div class="absolute inset-0 hero-photo-overlay"></div>
-        <div class="absolute inset-0 hero-aurora"></div>
-        <div class="absolute inset-0 hero-grid"></div>
-        <div class="absolute inset-0 opacity-10 pattern-bg"></div>
-        <!-- Decorative blobs -->
-        <div class="hero-blob hero-blob-1 w-72 h-72 bg-sky-400 -top-10 -left-10"></div>
-        <div class="hero-blob hero-blob-2 w-96 h-96 bg-blue-400 bottom-0 -right-16"></div>
-        <div class="hero-blob hero-blob-3 w-64 h-64 bg-indigo-400 top-1/3 right-1/4"></div>
-        <div class="hero-blob hero-blob-4 w-56 h-56 bg-purple-400 bottom-1/4 left-1/4"></div>
-        <div class="absolute inset-0 hero-vignette"></div>
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex flex-col items-center space-y-8">
-                <div class="text-white space-y-3 hero-text-shadow">
-                    <h1 class="hero-name text-2xl sm:text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-                        Tasnimul Intazam Asif
-                    </h1>
-                    <p class="hero-tagline text-base sm:text-xl md:text-2xl text-white max-w-3xl mx-auto" style="font-weight:800; text-shadow: 0 2px 8px rgba(0,0,0,0.9), 0 1px 20px rgba(0,0,0,0.7);">
-                        Python Developer | AI Engineer | Researcher | Data Analyst
-                    </p>
-<!--                    <p class="hero-desc text-xs sm:text-sm text-blue-200 max-w-2xl mx-auto font-bold" style="color:#fff !important;">-->
-<!--                        Transforming data into insights and research into publications.-->
-<!--                        Specialized in machine learning, academic writing, and data analysis.-->
-<!--                    </p>-->
+    <main id="main">
+        <!-- Hero -->
+        <section id="home" class="relative overflow-hidden pb-16 pt-24 sm:pb-24 sm:pt-40">
+            <div class="hero-glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
+            <div class="hero-grid pointer-events-none absolute inset-x-0 top-0 h-96" aria-hidden="true"></div>
+
+            <div class="container-page relative">
+                <div class="grid items-center gap-12 lg:grid-cols-2">
+                    <div class="reveal">
+                        <p class="overline text-brand-700">Hello, I'm</p>
+                        <h1 class="font-display display-hero mt-4 text-balance text-neutral-900">Tasnimul Intazam Asif</h1>
+                        <p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-600">
+                            Machine Learning Specialist and Academic Research Expert dedicated to transforming
+                            data into actionable insights and helping researchers achieve academic excellence.
+                        </p>
+
+                        <ul class="mt-6 flex flex-wrap gap-2" aria-label="Roles">
+                            <li class="chip">Python Developer</li>
+                            <li class="chip">AI Engineer</li>
+                            <li class="chip">Researcher</li>
+                            <li class="chip">Data Analyst</li>
+                        </ul>
+
+                        <div class="mt-8 flex flex-wrap items-center gap-3">
+                            <a href="portfolio.html" class="btn btn-lg btn-primary">
+                                View my work<i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" id="download-cv-btn-hero" class="btn btn-lg btn-outline">
+                                <i class="fas fa-download" aria-hidden="true"></i>Download CV
+                            </a>
+                        </div>
+
+                        <div class="mt-8 flex flex-wrap gap-4 border-t border-neutral-200 pt-4">
+                            <a href="https://github.com/TasnimulIntazamAsif" target="_blank" rel="noopener noreferrer" class="social-text">
+                                <i class="fab fa-github" aria-hidden="true"></i>GitHub
+                            </a>
+                            <a href="https://www.linkedin.com/in/asif2896" target="_blank" rel="noopener noreferrer" class="social-text">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>LinkedIn
+                            </a>
+                            <a href="mailto:intazam2896@gmail.com" class="social-text">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>Email
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Portrait -->
+                    <div class="reveal relative mx-auto w-full max-w-md lg:mr-0 lg:ml-auto">
+                        <div class="absolute inset-0 translate-x-4 translate-y-4 rounded-2xl bg-brand-50" aria-hidden="true"></div>
+                        <img src="image/asif%20image.png" alt="Portrait of Tasnimul Intazam Asif"
+                             class="relative aspect-[4/5] w-full rounded-2xl border border-neutral-200 object-cover shadow-e200"
+                             width="800" height="1000" />
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Scroll cue -->
-        <a href="#contact-options" class="scroll-cue hidden sm:flex flex-col items-center gap-1 absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 hover:text-white transition-colors z-10">
-            <span class="text-[11px] uppercase tracking-widest">Scroll</span>
-            <i class="fas fa-chevron-down"></i>
-        </a>
-    </section>
+        </section>
+
+        <!-- Focus areas -->
+        <section id="what-i-do" class="border-t border-neutral-200 bg-neutral-50 py-16 sm:py-24">
+            <div class="container-page">
+                <div class="reveal max-w-2xl">
+                    <p class="overline text-brand-700">Focus areas</p>
+                    <h2 class="t-h2 mt-3 text-neutral-900">What I can do for you</h2>
+                    <p class="mt-4 text-lg leading-relaxed text-neutral-600">
+                        Six core services spanning machine learning, data analysis and academic research support.
+                    </p>
+                </div>
+
+                <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <article class="card card-hover reveal p-6">
+                        <div class="icon-tile" aria-hidden="true"><i class="fas fa-brain"></i></div>
+                        <h3 class="mt-6 text-xl font-semibold text-neutral-900">Machine Learning Models</h3>
+                        <p class="mt-3 leading-relaxed text-neutral-600">
+                            Custom models for prediction, classification and clustering using Python,
+                            scikit-learn and TensorFlow.
+                        </p>
+                    </article>
+
+                    <article class="card card-hover reveal p-6">
+                        <div class="icon-tile" aria-hidden="true"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="mt-6 text-xl font-semibold text-neutral-900">Data Analysis &amp; Visualization</h3>
+                        <p class="mt-3 leading-relaxed text-neutral-600">
+                            Raw data turned into clean, analysis-ready datasets with statistical analysis
+                            and clear, decision-ready visualization.
+                        </p>
+                    </article>
+
+                    <article class="card card-hover reveal p-6">
+                        <div class="icon-tile" aria-hidden="true"><i class="fas fa-pen-fancy"></i></div>
+                        <h3 class="mt-6 text-xl font-semibold text-neutral-900">Academic Research Support</h3>
+                        <p class="mt-3 leading-relaxed text-neutral-600">
+                            Thesis proposals, literature reviews, paper summarization and presentation
+                            design for scholarly work.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="mt-8">
+                    <a href="services.html" class="link-arrow">Explore all services<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA band -->
+        <section class="py-16 sm:py-24">
+            <div class="container-page">
+                <div class="reveal flex flex-col gap-8 rounded-2xl bg-gradient-to-br from-brand-700 via-brand-600 to-brand-500 px-6 py-8 sm:px-12 sm:py-12 lg:flex-row lg:items-center lg:justify-between">
+                    <div class="max-w-2xl">
+                        <h2 class="t-h3 text-white">Have a project in mind?</h2>
+                        <p class="mt-3 leading-relaxed text-brand-100">
+                            Ready to collaborate on your next project? Let's discuss how I can help you achieve your goals.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="contact.html" class="btn btn-lg btn-inverse">
+                            Start a conversation<i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" id="download-cv-btn-cta" class="btn btn-lg btn-outline-inverse">
+                            <i class="fas fa-download" aria-hidden="true"></i>Download CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- About Section -->
+    <footer class="bg-neutral-900 text-neutral-400">
+        <div class="container-page">
+            <div class="grid gap-12 py-16 lg:grid-cols-4">
                 <div class="lg:col-span-2">
-                    <h3 class="text-lg sm:text-xl font-bold mb-3">Tasnimul Intazam Asif</h3>
-                    <p class="text-gray-300 mb-4 leading-relaxed text-xs sm:text-sm font-bold" style="color:#fff !important;">
-                        Machine Learning Specialist and Academic Research Expert dedicated to transforming 
+                    <div class="flex items-center gap-3">
+                        <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-600 text-sm font-bold text-white" aria-hidden="true">TA</span>
+                        <span class="text-lg font-semibold text-white">Tasnimul Intazam Asif</span>
+                    </div>
+                    <p class="mt-4 max-w-md leading-relaxed">
+                        Machine Learning Specialist and Academic Research Expert dedicated to transforming
                         data into actionable insights and helping researchers achieve academic excellence.
                     </p>
-                    <div class="flex space-x-3">
-                        <a href="https://www.linkedin.com/in/asif2896" target="_blank" rel="noopener noreferrer" class="bg-transparent hover:bg-blue-600/10 p-2 rounded-box transition-all duration-200 button-animate" title="LinkedIn">
-                            <i class="fab fa-linkedin text-blue-600 text-md footer-colored"></i>
-                        </a>
-                        <a href="https://github.com/TasnimulIntazamAsif" target="_blank" rel="noopener noreferrer" class="bg-transparent hover:bg-blue-600/10 p-2 rounded-box transition-all duration-200 button-animate" title="GitHub">
-                            <i class="fab fa-github text-blue-700 text-md footer-colored"></i>
-                        </a>
-                        <a href="https://www.fiverr.com/sellers/asif_intezam/edit" target="_blank" rel="noopener noreferrer" class="bg-transparent hover:bg-green-500/10 p-2 rounded-box transition-all duration-200 button-animate" title="Fiverr">
-                            <i class="fab fa-fiverr text-green-600 text-md footer-colored"></i>
-                        </a>
-                        <a href="https://wa.me/8801871446262" target="_blank" rel="noopener noreferrer" class="bg-transparent hover:bg-green-500/10 p-2 rounded-box transition-all duration-200 button-animate" title="WhatsApp">
-                            <i class="fab fa-whatsapp text-green-600 text-md footer-colored"></i>
-                        </a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=intazam2896@gmail.com" target="_blank" rel="noopener noreferrer" class="bg-transparent hover:bg-blue-600/10 p-2 rounded-box transition-all duration-200 button-animate" title="Gmail Email">
-                            <i class="fas fa-envelope text-blue-500 text-md footer-colored"></i>
-                        </a>
-                        <a href="tel:+8801871446262" target="_blank" rel="noopener noreferrer" class="bg-transparent hover:bg-blue-600/10 p-2 rounded-box transition-all duration-200 button-animate" title="Call">
-                            <i class="fas fa-phone-alt text-blue-400 text-md footer-colored"></i>
-                        </a>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <a href="https://www.linkedin.com/in/asif2896" target="_blank" rel="noopener noreferrer" class="icon-btn-dark" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="https://github.com/TasnimulIntazamAsif" target="_blank" rel="noopener noreferrer" class="icon-btn-dark" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="https://www.fiverr.com/sellers/asif_intezam/edit" target="_blank" rel="noopener noreferrer" class="icon-btn-dark" title="Fiverr" aria-label="Fiverr"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+                        <a href="https://wa.me/8801871446262" target="_blank" rel="noopener noreferrer" class="icon-btn-dark" title="WhatsApp" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                        <a href="mailto:intazam2896@gmail.com" class="icon-btn-dark" title="Email" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                        <a href="tel:+8801871446262" class="icon-btn-dark" title="Call" aria-label="Call"><i class="fas fa-phone" aria-hidden="true"></i></a>
                     </div>
                 </div>
-                <!-- Quick Links -->
+
                 <div>
-                    <h4 class="text-sm sm:text-md font-semibold mb-3">Quick Links</h4>
-                    <ul class="space-y-1">
-                        <li><a href="about.html" class="quick-link transition-colors text-xs sm:text-sm">About</a></li>
-                        <li><a href="services.html" class="quick-link transition-colors text-xs sm:text-sm">Services</a></li>
-                        <li><a href="portfolio.html" class="quick-link transition-colors text-xs sm:text-sm">Portfolio</a></li>
-                        <li><a href="blog.html" class="quick-link transition-colors text-xs sm:text-sm">Blog</a></li>
-                        <li><a href="contact.html" class="quick-link transition-colors text-xs sm:text-sm">Contact</a></li>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider text-white">Quick links</h3>
+                    <ul class="mt-6 space-y-3">
+                        <li><a href="about.html" class="footer-link"><i class="fas fa-user" aria-hidden="true"></i>About</a></li>
+                        <li><a href="services.html" class="footer-link"><i class="fas fa-briefcase" aria-hidden="true"></i>Services</a></li>
+                        <li><a href="portfolio.html" class="footer-link"><i class="fas fa-code" aria-hidden="true"></i>Portfolio</a></li>
+                        <li><a href="contact.html" class="footer-link"><i class="fas fa-envelope" aria-hidden="true"></i>Contact</a></li>
                     </ul>
                 </div>
-                <!-- Contact Info -->
-                <div id="contact-options">
-                    <h4 class="text-sm sm:text-md font-semibold mb-3">Contact Info</h4>
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-envelope text-blue-400 footer-colored"></i>
-                            <a href="mailto:intazam2896@gmail.com" class="quick-link transition-colors text-xs sm:text-sm">
-                                intazam2896@gmail.com
-                            </a>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fab fa-whatsapp text-blue-400 footer-colored"></i>
-                            <a href="https://wa.me/8801871446262" class="quick-link transition-colors text-xs sm:text-sm" target="_blank" rel="noopener noreferrer">
-                                WhatsApp (+880 1871-446262)
-                            </a>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-phone text-blue-400 footer-colored"></i>
-                            <a href="tel:+8801871446262" class="quick-link transition-colors text-xs sm:text-sm">
-                                +880 1871-446262
-                            </a>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-phone-alt text-blue-400 footer-colored"></i>
-                            <a href="tel:+8801871446262" class="quick-link transition-colors text-xs sm:text-sm">
-                                Call me (+880 1871-446262)
-                            </a>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-map-marker-alt text-blue-400 footer-colored"></i>
-                            <span class="quick-link text-xs sm:text-sm">Gazipur, Bangladesh</span>
-                        </div>
-                    </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider text-white">Contact info</h3>
+                    <ul class="mt-6 space-y-3">
+                        <li><a href="mailto:intazam2896@gmail.com" class="footer-link"><i class="fas fa-envelope" aria-hidden="true"></i>intazam2896@gmail.com</a></li>
+                        <li><a href="tel:+8801871446262" class="footer-link"><i class="fas fa-phone" aria-hidden="true"></i>+880 1871-446262</a></li>
+                        <li><a href="https://wa.me/8801871446262" target="_blank" rel="noopener noreferrer" class="footer-link"><i class="fab fa-whatsapp" aria-hidden="true"></i>WhatsApp</a></li>
+                        <li><span class="footer-link"><i class="fas fa-location-dot" aria-hidden="true"></i>Gazipur, Bangladesh</span></li>
+                    </ul>
                 </div>
             </div>
-            <!-- Bottom Bar -->
-            <div class="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-blue-300 text-xs sm:text-sm font-bold" style="color:#fff !important;">
-                    © <span id="current-year"></span> Tasnimul Intazam Asif. All rights reserved.
-                </p>
-                <button onclick="scrollToTop()" class="mt-4 md:mt-0 bg-transparent border-2 border-blue-600 text-white hover:bg-blue-700 hover:text-white rounded-xl py-2 px-3 transition-all duration-200 button-animate text-lg font-bold focus:outline-none"
-                    onmouseover="this.classList.add('animate-button-hover')" onanimationend="this.classList.remove('animate-button-hover')">
-                    <i class="fas fa-arrow-up text-md"></i>
+
+            <div class="flex flex-col items-center justify-between gap-6 border-t border-neutral-800 py-8 md:flex-row">
+                <p class="text-sm">© <span id="current-year">2026</span> Tasnimul Intazam Asif. All rights reserved.</p>
+                <button type="button" onclick="scrollToTop()" class="icon-btn-dark" title="Back to top" aria-label="Back to top">
+                    <i class="fas fa-arrow-up" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
     </footer>
+
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const btn = document.getElementById('mobile-menu-btn');
-            menu.classList.toggle('hidden');
-            const icon = btn.querySelector('i');
-            if (menu.classList.contains('hidden')) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            } else {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            }
+            var menu = document.getElementById('mobile-menu');
+            var btn = document.getElementById('mobile-menu-btn');
+            var open = !menu.classList.toggle('hidden');
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+            var icon = btn.querySelector('i');
+            icon.className = open ? 'fas fa-times' : 'fas fa-bars';
+            icon.setAttribute('aria-hidden', 'true');
         }
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.remove('bg-transparent');
-                header.classList.add('bg-white', 'shadow-lg');
-            } else {
-                header.classList.add('bg-transparent');
-                header.classList.remove('bg-white', 'shadow-lg');
-            }
-        });
+
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
 
-        // Animation on CTA buttons (for bounce effect on hover)
-        document.addEventListener('DOMContentLoaded', function() {
-            for (const btn of document.querySelectorAll('.cta-btn')) {
-                btn.addEventListener('mouseover', function(){
-                    btn.classList.add('animate-button-hover');
-                });
-                btn.addEventListener('animationend', function(){
-                    btn.classList.remove('animate-button-hover');
-                });
-            }
-            // Also for scroll to top button
-            const topBtn = document.querySelector('button[onclick="scrollToTop()"]');
-            if(topBtn) {
-                topBtn.addEventListener('mouseover', function(){
-                    topBtn.classList.add('animate-button-hover');
-                });
-                topBtn.addEventListener('animationend', function(){
-                    topBtn.classList.remove('animate-button-hover');
-                });
-            }
-
-            // Download CV custom logic
-            function downloadCV(e) {
-                e.preventDefault();
-                // The file should exist in the root directory or public folder with this exact filename:
-                var fileUrl = "Tasnimul Intazam Asif CV.pdf";
-                var fileName = "Tasnimul Intazam Asif CV.pdf";
-                var link = document.createElement('a');
-                link.href = fileUrl;
-                link.download = fileName;
-                // Required for cross-browser support (esp. Firefox) to trigger download
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-            ['download-cv-btn', 'download-cv-btn-mobile'].forEach(function (id) {
-                var btn = document.getElementById(id);
-                if (btn) btn.addEventListener('click', downloadCV);
-            });
+        /* CV download */
+        function downloadCV(e) {
+            e.preventDefault();
+            var fileUrl = 'Tasnimul%20Intazam%20Asif%20CV.pdf';
+            var link = document.createElement('a');
+            link.href = fileUrl;
+            link.download = 'Tasnimul Intazam Asif CV.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        ['download-cv-btn', 'download-cv-btn-mobile', 'download-cv-btn-hero', 'download-cv-btn-cta'].forEach(function (id) {
+            var btn = document.getElementById(id);
+            if (btn) btn.addEventListener('click', downloadCV);
         });
+
+        /* Reveal on scroll */
+        var revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+            revealEls.forEach(function (el) { io.observe(el); });
+        } else {
+            revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+        }
     </script>
 </body>
 </html>
