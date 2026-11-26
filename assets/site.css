@@ -450,3 +450,8 @@ dl.glass .glass-label { white-space: nowrap; }
     .marquee-track { animation: none; }
     .marquee { overflow-x: auto; }
 }
+
+/* Dark mode uses the cut-out photo (no grey background) */
+.portrait-frame .portrait-dark { display: none; }
+html.dark .portrait-frame .portrait-light { display: none; }
+html.dark .portrait-frame .portrait-dark { display: block; }
