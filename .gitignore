@@ -1,1 +1,38 @@
+# IDE / editor config
 .idea/
+.vscode/
+*.iml
+*.swp
+*~
+
+# VS Code "Local History" extension snapshots
+.history/
+
+# Python virtual environment
+.venv/
+venv/
+__pycache__/
+
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+secrets*.json
+service-account*.json
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and temp files
+*.log
+*.tmp

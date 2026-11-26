@@ -1,0 +1,358 @@
+/* =====================================================================
+   Shared enhancements for every page:
+   dark mode, page banners, home-page sections, portfolio filter, motion.
+   Loaded after each page's inline <style>.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1. Dark mode
+   The pages build their components on --n-* / --brand-* variables, so
+   flipping the neutral scale re-themes most of the UI. The Tailwind
+   utility classes used in the markup are remapped below.
+   --------------------------------------------------------------------- */
+html.dark {
+    color-scheme: dark;
+    --n-0:#141210; --n-50:#1A1815; --n-100:#24211D; --n-200:#33302A; --n-300:#4A4640; --n-400:#665F52;
+    --n-500:#847E71; --n-600:#A8A499; --n-700:#CBC8BF; --n-800:#E2E0DA; --n-900:#F0EFEC; --n-950:#FAFAF9;
+    --brand-50: rgba(98,82,232,.16); --brand-100: rgba(98,82,232,.26);
+    --brand-700:#9B8CF2; --brand-800:#C2B9F8;
+    --shadow-100: 0 1px 2px rgba(0,0,0,.4);
+    --shadow-200: 0 8px 24px rgba(0,0,0,.45);
+}
+html.dark .bg-white       { background-color: var(--n-0); }
+html.dark .bg-neutral-50  { background-color: var(--n-50); }
+html.dark .bg-white\/85   { background-color: rgba(20,18,16,.85); }
+html.dark .bg-white\/95   { background-color: rgba(20,18,16,.9); }
+html.dark .bg-brand-50    { background-color: var(--brand-50); }
+html.dark .text-neutral-900 { color: var(--n-900); }
+html.dark .text-neutral-700 { color: var(--n-700); }
+html.dark .text-neutral-600 { color: var(--n-600); }
+html.dark .text-neutral-500 { color: var(--n-500); }
+html.dark .text-brand-700 { color: #9B8CF2; }
+html.dark .text-brand-600 { color: #7A67ED; }
+html.dark .border-neutral-200 { border-color: var(--n-200); }
+html.dark .text-success-700 { color: #4ADE80; }
+html.dark .text-danger-700  { color: #F87171; }
+
+/* Elements that must keep their light-mode look */
+html.dark .btn-primary:hover  { background: #6252E8; }
+html.dark .btn-primary:active { background: #7A67ED; }
+html.dark .btn-inverse        { background: #fff; color: #4238C2; }
+html.dark .btn-inverse:hover  { background: #F0EEFD; }
+html.dark footer.bg-neutral-900 { background-color: #0B0A09; border-top: 1px solid var(--n-100); }
+html.dark .footer-link        { color: #A8A499; }
+html.dark .footer-link:hover  { color: #fff; }
+html.dark .icon-btn-dark      { border-color: #38352F; color: #A8A499; }
+html.dark .icon-btn-dark:hover { border-color: var(--brand-600); color: #fff; }
+
+/* Smooth colour change when toggling (only after first paint) */
+html.theme-ready body, html.theme-ready header, html.theme-ready section,
+html.theme-ready .card, html.theme-ready footer {
+    transition: background-color .3s var(--ease-standard), border-color .3s var(--ease-standard), color .3s var(--ease-standard);
+}
+
+/* Theme toggle icon swap */
+.theme-toggle .fa-sun { display: none; }
+html.dark .theme-toggle .fa-sun { display: inline-block; }
+html.dark .theme-toggle .fa-moon { display: none; }
+
+/* ---------------------------------------------------------------------
+   2. Scroll progress bar (under the fixed header)
+   --------------------------------------------------------------------- */
+.scroll-progress {
+    position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%;
+    background: linear-gradient(90deg, var(--brand-600), #A78BFA);
+    transform-origin: 0 50%; transform: scaleX(0);
+}
+
+/* ---------------------------------------------------------------------
+   3. Page banners — each inner page gets its own accent
+   --------------------------------------------------------------------- */
+.breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(224,220,251,.75); }
+.breadcrumb a { color: rgba(224,220,251,.75); text-decoration: none; transition: color .15s var(--ease-standard); }
+.breadcrumb a:hover { color: #fff; }
+.breadcrumb i { font-size: 9px; opacity: .6; }
+.breadcrumb [aria-current] { color: #fff; font-weight: 600; }
+
+.glass {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 16px;
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px -20px rgba(0,0,0,.5);
+}
+.glass-tile {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+    padding: 14px 8px; border-radius: 12px; text-align: center;
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+    color: #E0DCFB; font-size: 12px; font-weight: 500; line-height: 1.3;
+    transition: background-color .2s var(--ease-standard), transform .2s var(--ease-standard);
+}
+.glass-tile i { font-size: 18px; color: #C2B9F8; }
+a.glass-tile { text-decoration: none; }
+.glass-tile:hover { background: rgba(255,255,255,.12); transform: translateY(-2px); }
+.glass-row { display: flex; align-items: center; gap: 12px; }
+.glass-row + .glass-row { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.1); }
+.glass-icon {
+    display: grid; place-items: center; width: 40px; height: 40px; flex: none; border-radius: 10px;
+    background: rgba(255,255,255,.1); color: #C2B9F8; font-size: 15px;
+}
+.glass-label { display: block; font-size: 12px; color: rgba(224,220,251,.7); }
+.glass-value { display: block; font-size: 15px; font-weight: 600; color: #fff; }
+.glass-stat { font-family: 'Source Serif 4', Georgia, serif; font-size: 34px; font-weight: 600; line-height: 1; color: #fff; }
+
+/* Per-page glow colour and position */
+.banner-about     .banner-glow { background: radial-gradient(55% 90% at 10% 0%, rgba(45,212,191,.28) 0%, rgba(45,212,191,0) 60%), radial-gradient(50% 80% at 95% 100%, rgba(122,103,237,.4) 0%, rgba(122,103,237,0) 60%); }
+.banner-services  .banner-glow { background: radial-gradient(60% 90% at 85% 10%, rgba(122,103,237,.5) 0%, rgba(122,103,237,0) 60%), radial-gradient(40% 70% at 0% 100%, rgba(56,189,248,.22) 0%, rgba(56,189,248,0) 60%); }
+.banner-portfolio .banner-glow { background: radial-gradient(55% 90% at 50% -10%, rgba(236,72,153,.3) 0%, rgba(236,72,153,0) 60%), radial-gradient(45% 80% at 100% 90%, rgba(122,103,237,.4) 0%, rgba(122,103,237,0) 60%); }
+.banner-contact   .banner-glow { background: radial-gradient(55% 90% at 90% 100%, rgba(59,130,246,.35) 0%, rgba(59,130,246,0) 60%), radial-gradient(45% 70% at 5% 0%, rgba(167,139,250,.35) 0%, rgba(167,139,250,0) 60%); }
+
+/* Slow floating orb in each banner */
+.banner-orb {
+    position: absolute; width: 320px; height: 320px; border-radius: 9999px; pointer-events: none;
+    background: radial-gradient(circle at 30% 30%, rgba(167,139,250,.35), rgba(79,70,229,0) 70%);
+    filter: blur(8px); animation: float-slow 14s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------------------
+   4. Home hero — portrait decoration and stats
+   --------------------------------------------------------------------- */
+.portrait-wrap { position: relative; isolation: isolate; }
+/* Soft brand light behind the photo — no hard shapes competing with it */
+.portrait-glow {
+    position: absolute; inset: 8% -6% -6% 8%; z-index: -1; border-radius: 32px;
+    background: linear-gradient(135deg, rgba(79,70,229,.28), rgba(167,139,250,.22));
+    filter: blur(36px);
+}
+html.dark .portrait-glow { background: linear-gradient(135deg, rgba(79,70,229,.45), rgba(167,139,250,.3)); }
+.portrait-frame {
+    position: relative; overflow: hidden; border-radius: 28px;
+    background: var(--n-0); padding: 8px;
+    border: 1px solid var(--n-200); box-shadow: var(--shadow-200);
+}
+.portrait-frame img { display: block; border-radius: 22px; }
+.badge-icon {
+    display: grid; place-items: center; width: 34px; height: 34px; flex: none; border-radius: 9px;
+    background: var(--brand-50); color: var(--brand-700); font-size: 14px;
+}
+.float-badge {
+    position: absolute; display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px; border-radius: 12px;
+    background: var(--n-0); border: 1px solid var(--n-200); box-shadow: var(--shadow-200);
+    font-size: 13px; font-weight: 600; color: var(--n-900); white-space: nowrap;
+    animation: float-y 6s ease-in-out infinite;
+}
+.float-badge small { display: block; font-size: 11px; font-weight: 500; color: var(--n-600); }
+.float-badge--delay { animation-delay: -3s; }
+
+.stat-num { font-family: 'Source Serif 4', Georgia, serif; font-size: 32px; font-weight: 600; line-height: 1; color: var(--n-900); }
+.stat-label { margin-top: 6px; font-size: 13px; color: var(--n-600); }
+
+/* ---------------------------------------------------------------------
+   5. Home sections — process, tech stack, testimonials
+   --------------------------------------------------------------------- */
+.step-num {
+    display: grid; place-items: center; width: 48px; height: 48px; border-radius: 9999px;
+    background: var(--brand-600); color: #fff; font-weight: 700; font-size: 16px;
+    box-shadow: 0 0 0 6px var(--brand-50);
+}
+@media (min-width: 1024px) {
+    .steps { position: relative; }
+    .steps::before {
+        content: ""; position: absolute; top: 24px; left: 12.5%; right: 12.5%; height: 2px;
+        background: repeating-linear-gradient(90deg, var(--brand-200) 0 8px, transparent 8px 16px);
+    }
+    html.dark .steps::before { background: repeating-linear-gradient(90deg, rgba(155,140,242,.35) 0 8px, transparent 8px 16px); }
+}
+
+.tech-tile {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+    padding: 20px 12px; border-radius: 12px; background: var(--n-0); border: 1px solid var(--n-200);
+    font-size: 13px; font-weight: 600; color: var(--n-700); text-align: center;
+    transition: transform .2s var(--ease-standard), box-shadow .2s var(--ease-standard), border-color .2s var(--ease-standard);
+}
+.tech-tile i { font-size: 36px; filter: grayscale(.15); transition: transform .2s var(--ease-standard); }
+.tech-tile:hover { transform: translateY(-4px); box-shadow: var(--shadow-200); border-color: var(--brand-300); }
+.tech-tile:hover i { transform: scale(1.12); }
+/* Dark logos need a lift on the dark background */
+html.dark .tech-tile .devicon-flask-original,
+html.dark .tech-tile .devicon-django-plain.colored,
+html.dark .tech-tile .devicon-pandas-plain.colored,
+html.dark .tech-tile .devicon-mysql-original.colored { filter: brightness(2.6) saturate(.8); }
+
+.quote-card { position: relative; }
+.quote-card .quote-mark { position: absolute; right: 24px; top: 16px; font-size: 48px; color: var(--brand-100); }
+.stars { color: #F59E0B; font-size: 13px; letter-spacing: 2px; }
+.avatar {
+    display: grid; place-items: center; width: 44px; height: 44px; flex: none; border-radius: 9999px;
+    background: linear-gradient(135deg, var(--brand-500), #A78BFA); color: #fff; font-weight: 700; font-size: 15px;
+}
+
+/* Icon tiles fill with brand colour on card hover */
+.card-hover .icon-tile { transition: background-color .2s var(--ease-standard), color .2s var(--ease-standard), transform .2s var(--ease-standard); }
+.card-hover:hover .icon-tile { background: var(--brand-600); color: #fff; transform: rotate(-6deg) scale(1.05); }
+
+/* ---------------------------------------------------------------------
+   6. Portfolio filter
+   --------------------------------------------------------------------- */
+.filter-btn {
+    display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 9999px;
+    border: 1px solid var(--n-200); background: var(--n-0); color: var(--n-700);
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: background-color .15s var(--ease-standard), color .15s var(--ease-standard), border-color .15s var(--ease-standard);
+}
+.filter-btn:hover { border-color: var(--brand-600); color: var(--brand-700); }
+.filter-btn[aria-pressed="true"] { background: var(--brand-600); border-color: var(--brand-600); color: #fff; }
+.filter-btn .count {
+    display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 9999px;
+    background: var(--n-100); color: var(--n-700); font-size: 12px;
+}
+.filter-btn[aria-pressed="true"] .count { background: rgba(255,255,255,.2); color: #fff; }
+.project.is-hiding { opacity: 0; transform: scale(.96); transition: opacity .2s var(--ease-standard), transform .2s var(--ease-standard); }
+.project.is-hidden { display: none; }
+
+/* ---------------------------------------------------------------------
+   7. Motion
+   --------------------------------------------------------------------- */
+@keyframes float-y    { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes float-slow { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px, 20px); } }
+
+@media (prefers-reduced-motion: reduce) {
+    .float-badge, .banner-orb { animation: none; }
+    .tech-tile, .tech-tile i, .glass-tile, .card-hover .icon-tile, .project.is-hiding { transition: none; }
+    .card-hover:hover .icon-tile { transform: none; }
+}
+
+/* ---------------------------------------------------------------------
+   8. Portfolio project cards (icon headers instead of stock photos)
+   --------------------------------------------------------------------- */
+.proj-head {
+    position: relative; overflow: hidden; height: 132px; display: flex; align-items: flex-end; gap: 8px;
+    padding: 16px 20px; color: #fff;
+}
+.proj-head--lg { height: 168px; }
+.proj-head::after { /* subtle grid texture */
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(to right, rgba(255,255,255,.08) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+    -webkit-mask-image: linear-gradient(to left, #000, transparent 70%); mask-image: linear-gradient(to left, #000, transparent 70%);
+}
+.proj-head--cv  { background: linear-gradient(135deg, #1E1B4B 0%, #4338CA 60%, #0EA5E9 130%); }
+.proj-head--ml  { background: linear-gradient(135deg, #2A2478 0%, #4F46E5 55%, #A78BFA 120%); }
+.proj-head--ai  { background: linear-gradient(135deg, #3B0764 0%, #7C3AED 60%, #EC4899 130%); }
+.proj-head--web { background: linear-gradient(135deg, #0F172A 0%, #334155 55%, #6366F1 130%); }
+.proj-icon {
+    position: absolute; right: 20px; top: 50%; transform: translateY(-50%) rotate(-8deg);
+    font-size: 64px; color: rgba(255,255,255,.22);
+    transition: transform .4s var(--ease-standard), color .4s var(--ease-standard);
+}
+.proj-head--lg .proj-icon { font-size: 88px; }
+.project:hover .proj-icon { transform: translateY(-50%) rotate(0deg) scale(1.1); color: rgba(255,255,255,.35); }
+.proj-tag, .paper-badge {
+    position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border-radius: 9999px; font-size: 12px; font-weight: 600;
+}
+.proj-tag { background: rgba(255,255,255,.95); color: #4238C2; }
+.paper-badge { background: rgba(245,158,11,.95); color: #1A1815; }
+.featured-card { display: flex; flex-direction: column; overflow: hidden; transition: transform .3s var(--ease-standard), box-shadow .3s var(--ease-standard); }
+.featured-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-200); }
+
+.feature-list { display: grid; gap: 8px; font-size: 15px; color: var(--n-700); }
+.feature-list--sm { font-size: 14px; gap: 6px; }
+.feature-list li { position: relative; padding-left: 24px; line-height: 1.5; }
+.feature-list li::before {
+    content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: 11px;
+    position: absolute; left: 0; top: 3px; width: 16px; height: 16px; display: grid; place-items: center;
+    border-radius: 9999px; background: var(--brand-50); color: var(--brand-700);
+}
+
+/* Publications */
+.pub-card { display: flex; gap: 20px; padding: 24px; transition: border-color .2s var(--ease-standard), transform .2s var(--ease-standard); }
+.pub-card:hover { border-color: var(--brand-300); transform: translateY(-2px); }
+.pub-num { font-family: 'Source Serif 4', Georgia, serif; font-size: 36px; font-weight: 600; line-height: 1; color: var(--brand-200); flex: none; }
+html.dark .pub-num { color: rgba(155,140,242,.45); }
+.chip-accent { background: rgba(245,158,11,.15); color: #9C6B00; }
+html.dark .chip-accent { color: #FBBF24; }
+
+/* ---------------------------------------------------------------------
+   9. About page — highlights, timeline, certifications
+   --------------------------------------------------------------------- */
+.highlight-card { display: flex; flex-direction: column; gap: 8px; }
+.highlight-num { font-family: 'Source Serif 4', Georgia, serif; font-size: 40px; font-weight: 600; line-height: 1; color: var(--brand-700); }
+.highlight-label { font-size: 14px; line-height: 1.45; color: var(--n-600); }
+
+.timeline { position: relative; display: grid; gap: 28px; padding-left: 28px; }
+.timeline::before { content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px; background: var(--n-200); }
+.timeline li { position: relative; }
+.timeline li::before {
+    content: ""; position: absolute; left: -28px; top: 4px; width: 16px; height: 16px; border-radius: 9999px;
+    background: var(--n-0); border: 3px solid var(--brand-600);
+}
+.timeline li:first-child::before { background: var(--brand-600); box-shadow: 0 0 0 5px var(--brand-50); }
+.timeline-date { font-size: 13px; font-weight: 600; color: var(--brand-700); }
+.timeline-title { margin-top: 4px; font-size: 17px; font-weight: 600; color: var(--n-900); }
+.timeline-org { margin-top: 2px; font-size: 15px; color: var(--n-600); }
+
+.cert-list li {
+    display: flex; flex-direction: column; gap: 2px; padding: 14px 16px 14px 44px; position: relative;
+    border: 1px solid var(--n-200); border-radius: 12px; background: var(--n-0);
+}
+.cert-list li::before {
+    content: "\f559"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+    position: absolute; left: 16px; top: 15px; color: var(--brand-600); font-size: 15px;
+}
+.cert-list strong { font-size: 14px; font-weight: 600; color: var(--n-900); }
+.cert-list span { font-size: 13px; color: var(--n-600); }
+
+@media (prefers-reduced-motion: reduce) {
+    .proj-icon, .featured-card, .pub-card { transition: none; }
+}
+
+/* Info card that overlaps the bottom edge of the portrait frame */
+.portrait-info {
+    position: relative; z-index: 1; width: fit-content; max-width: calc(100% - 24px);
+    margin: -34px auto 0; display: flex;
+    background: var(--n-0); border: 1px solid var(--n-200); border-radius: 16px; box-shadow: var(--shadow-200);
+}
+.portrait-info-item {
+    display: flex; align-items: center; gap: 8px; padding: 10px 14px;
+    font-size: 13px; font-weight: 600; line-height: 1.3; color: var(--n-900); white-space: nowrap;
+}
+.portrait-info-item .badge-icon { width: 30px; height: 30px; font-size: 12px; border-radius: 8px; }
+.portrait-info-item + .portrait-info-item { border-left: 1px solid var(--n-200); }
+.portrait-info-item small { display: block; margin-top: 2px; font-size: 11.5px; font-weight: 500; color: var(--n-600); }
+@media (max-width: 420px) {
+    .portrait-info { flex-direction: column; width: auto; margin-inline: 12px; }
+    .portrait-info-item + .portrait-info-item { border-left: 0; border-top: 1px solid var(--n-200); }
+}
+
+/* ---------------------------------------------------------------------
+   10. Mobile refinements
+   --------------------------------------------------------------------- */
+dl.glass .glass-label { white-space: nowrap; }
+
+@media (max-width: 639px) {
+    /* Filter chips: one swipeable row instead of four stacked rows */
+    div[data-filter-bar] {
+        flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding: 2px 16px 6px;
+        scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity;
+    }
+    div[data-filter-bar]::-webkit-scrollbar { display: none; }
+    .filter-btn { flex: none; scroll-snap-align: start; }
+
+    .glass-stat { font-size: 28px; }
+    .highlight-num { font-size: 32px; }
+    .highlight-label { font-size: 13px; }
+    .stat-num { font-size: 28px; }
+    .stat-label { font-size: 12px; }
+
+    .proj-head { height: 112px; }
+    .proj-head--lg { height: 132px; }
+    .proj-head--lg .proj-icon { font-size: 68px; }
+    .pub-card { gap: 14px; padding: 20px; }
+    .pub-num { font-size: 28px; }
+
+    /* Bigger tap targets in the mobile menu */
+    #mobile-menu .nav-link { padding: 12px 14px; font-size: 15px; }
+}

@@ -7,7 +7,7 @@
     <meta name="description" content="Selected work by Tasnimul Intazam Asif — machine learning, data analysis, OCR and academic research projects.">
     <meta name="theme-color" content="#4F46E5">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234F46E5'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='26' font-weight='700' fill='%23FFFFFF' text-anchor='middle'%3ETA%3C/text%3E%3C/svg%3E">
-    <script>document.documentElement.className += ' js';</script>
+    <script>(function(d){d.className+=' js';try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))d.classList.add('dark');}catch(e){}})(document.documentElement);</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -186,6 +186,7 @@
             .card, .btn, .icon-btn, .icon-btn-dark { transition: none; }
         }
     </style>
+    <link rel="stylesheet" href="assets/site.css">
 </head>
 <body class="bg-white text-neutral-900">
     <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-neutral-900 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">Skip to content</a>
@@ -200,7 +201,7 @@
                 </a>
 
                 <!-- Desktop navigation -->
-                <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+                <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
                     <a href="index.html" class="nav-link"><i class="fas fa-home" aria-hidden="true"></i>Home</a>
                     <a href="about.html" class="nav-link"><i class="fas fa-user" aria-hidden="true"></i>About</a>
                     <a href="services.html" class="nav-link"><i class="fas fa-briefcase" aria-hidden="true"></i>Services</a>
@@ -209,12 +210,15 @@
                 </nav>
 
                 <div class="flex items-center gap-2">
+                    <button type="button" class="icon-btn theme-toggle" aria-pressed="false" aria-label="Switch to dark mode" title="Dark mode">
+                        <i class="fas fa-moon" aria-hidden="true"></i><i class="fas fa-sun" aria-hidden="true"></i>
+                    </button>
                     <div class="hidden sm:block">
                         <a href="#" id="download-cv-btn" class="btn btn-md btn-primary">
                             <i class="fas fa-download" aria-hidden="true"></i>Download CV
                         </a>
                     </div>
-                    <div class="md:hidden">
+                    <div class="lg:hidden">
                         <button id="mobile-menu-btn" type="button" class="icon-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
                             <i class="fas fa-bars" aria-hidden="true"></i>
                         </button>
@@ -223,7 +227,7 @@
             </div>
 
             <!-- Mobile navigation -->
-            <div id="mobile-menu" class="hidden border-t border-neutral-200 py-4 md:hidden">
+            <div id="mobile-menu" class="hidden border-t border-neutral-200 py-4 lg:hidden">
                 <nav class="flex flex-col gap-1" aria-label="Mobile">
                     <a href="index.html" class="nav-link"><i class="fas fa-home" aria-hidden="true"></i>Home</a>
                     <a href="about.html" class="nav-link"><i class="fas fa-user" aria-hidden="true"></i>About</a>
@@ -236,183 +240,385 @@
                 </a>
             </div>
         </div>
+        <div class="scroll-progress" aria-hidden="true"></div>
     </header>
 
     <main id="main">
         <!-- Page banner -->
-        <section class="relative overflow-hidden bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800 pb-16 pt-24 sm:pb-24 sm:pt-40">
+        <section class="banner-portfolio relative overflow-hidden bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800 pb-16 pt-24 sm:pb-24 sm:pt-36">
             <div class="banner-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
             <div class="banner-glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
+            <div class="banner-orb left-1/2 -top-32" aria-hidden="true"></div>
             <div class="container-page relative">
-                <div class="max-w-3xl">
-                    <p class="overline text-brand-200">Selected work</p>
-                    <h1 class="t-h1 mt-4 text-white">Portfolio</h1>
-                    <p class="mt-4 text-lg leading-relaxed text-brand-100">
-                        Showcasing successful projects in machine learning, academic research, and data analysis
-                    </p>
+                <div class="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
+                    <div class="max-w-3xl">
+                        <nav aria-label="Breadcrumb" class="breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right" aria-hidden="true"></i><span aria-current="page">Portfolio</span></nav>
+                        <p class="overline mt-6 text-brand-200">Selected work</p>
+                        <h1 class="t-h1 mt-4 text-white">Portfolio</h1>
+                        <p class="mt-4 text-lg leading-relaxed text-brand-100">
+                            Real projects in computer vision, healthcare AI, LLM tools and full-stack web, with code, live demos and the research behind them
+                        </p>
+                    </div>
+                    <dl class="glass reveal grid grid-cols-3 divide-x divide-white/10 px-2 py-6">
+                        <div class="flex flex-col-reverse px-3 text-center sm:px-6">
+                            <dt class="glass-label mt-2">Projects</dt>
+                            <dd class="glass-stat" data-count="14">14</dd>
+                        </div>
+                        <div class="flex flex-col-reverse px-3 text-center sm:px-6">
+                            <dt class="glass-label mt-2">Publications</dt>
+                            <dd class="glass-stat" data-count="4">4</dd>
+                        </div>
+                        <div class="flex flex-col-reverse px-3 text-center sm:px-6">
+                            <dt class="glass-label mt-2">GitHub repos</dt>
+                            <dd class="glass-stat" data-count="80" data-suffix="+">80+</dd>
+                        </div>
+                    </dl>
                 </div>
             </div>
         </section>
 
-        <!-- Projects -->
+        <!-- Projects (content from CV and GitHub READMEs) -->
         <section id="portfolio" class="bg-neutral-50 py-16 sm:py-24">
             <div class="container-page">
-                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <!-- Project 1 -->
-                    <article class="card card-hover reveal group flex flex-col overflow-hidden">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=800"
-                                 alt="Cardiovascular Disease Risk Prediction"
-                                 loading="lazy" decoding="async"
-                                 class="h-48 w-full object-cover transition-transform duration-300 ease-standard group-hover:scale-105" />
-                            <span class="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-brand-700 shadow-e100 backdrop-blur-sm">Machine Learning</span>
+                <div class="reveal mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div class="filter-bar flex flex-wrap gap-2" role="group" aria-label="Filter projects" data-filter-bar>
+                        <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All <span class="count"></span></button>
+                        <button type="button" class="filter-btn" data-filter="cv" aria-pressed="false"><i class="fas fa-eye" aria-hidden="true"></i>Computer Vision <span class="count"></span></button>
+                        <button type="button" class="filter-btn" data-filter="ml" aria-pressed="false"><i class="fas fa-brain" aria-hidden="true"></i>Machine Learning <span class="count"></span></button>
+                        <button type="button" class="filter-btn" data-filter="ai" aria-pressed="false"><i class="fas fa-robot" aria-hidden="true"></i>AI &amp; NLP <span class="count"></span></button>
+                        <button type="button" class="filter-btn" data-filter="web" aria-pressed="false"><i class="fas fa-code" aria-hidden="true"></i>Web &amp; Software <span class="count"></span></button>
+                    </div>
+                    <p id="filter-status" class="text-sm text-neutral-600" aria-live="polite">Showing 14 projects</p>
+                </div>
+
+                <h2 class="sr-only">Featured projects</h2>
+                <div class="grid gap-6 lg:grid-cols-2" data-stagger>
+                    <article class="project featured-card card reveal" data-category="cv">
+                        <div class="proj-head proj-head--cv proj-head--lg">
+                            <i class="fas fa-video proj-icon" aria-hidden="true"></i>
+                            <span class="proj-tag">Computer Vision</span>
+                            
                         </div>
-                        <div class="flex flex-1 flex-col p-6">
-                            <h2 class="text-lg font-semibold text-neutral-900">Cardiovascular Disease Risk Prediction</h2>
-                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">Advanced machine learning model to predict cardiovascular disease risk using patient health data with 94% accuracy.</p>
-                            <div class="mb-6 mt-4 flex flex-wrap gap-2">
-                                <span class="chip">Python</span>
-                                <span class="chip">Random Forest</span>
-                                <span class="chip">XGBoost</span>
-                                <span class="chip">Pandas</span>
-                                <span class="chip">Scikit-learn</span>
-                            </div>
+                        <div class="flex flex-1 flex-col p-6 sm:p-8">
+                            <p class="overline text-brand-700">Computer vision · Live RTSP streams</p>
+                            <h3 class="mt-2 text-xl font-semibold text-neutral-900">Real-Time CCTV Detection &amp; Movement Tracking</h3>
+                            <p class="mt-3 leading-relaxed text-neutral-600">A real-time monitoring system that reads live RTSP CCTV streams, detects and tracks people and objects with YOLO, and shows how long each person moves or stays — with live FPS on screen.</p>
+                            <ul class="feature-list mt-5">
+                                <li>YOLOv8, YOLO26s and YOLO26n detection with ByteTrack tracking</li><li>Movement duration and direction (up / down / stay) per person</li><li>Threaded capture and GPU FP16 inference for low latency</li>
+                            </ul>
+                            <div class="mb-6 mt-5 flex flex-wrap gap-2"><span class="chip">Python</span><span class="chip">YOLOv8</span><span class="chip">PyTorch</span><span class="chip">OpenCV</span><span class="chip">Flask</span><span class="chip">ByteTrack</span></div>
                             <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
-                                <a href="#" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
-                                <a href="#" class="link-arrow"><i class="fas fa-external-link-alt" aria-hidden="true"></i>Demo</a>
+                                <a href="https://github.com/TasnimulIntazamAsif/Real_Live-Cam-Detection-YOLO" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
                             </div>
                         </div>
                     </article>
-
-                    <!-- Project 2 -->
-                    <article class="card card-hover reveal group flex flex-col overflow-hidden">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800"
-                                 alt="Academic Thesis Presentation Suite"
-                                 loading="lazy" decoding="async"
-                                 class="h-48 w-full object-cover transition-transform duration-300 ease-standard group-hover:scale-105" />
-                            <span class="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-brand-700 shadow-e100 backdrop-blur-sm">Academic Writing</span>
+                    <article class="project featured-card card reveal" data-category="ml web">
+                        <div class="proj-head proj-head--ml proj-head--lg">
+                            <i class="fas fa-heart-pulse proj-icon" aria-hidden="true"></i>
+                            <span class="proj-tag">Machine Learning</span>
+                            <span class="paper-badge"><i class="fas fa-file-lines" aria-hidden="true"></i>IJEEI · 1st author</span>
                         </div>
-                        <div class="flex flex-1 flex-col p-6">
-                            <h2 class="text-lg font-semibold text-neutral-900">Academic Thesis Presentation Suite</h2>
-                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">Comprehensive thesis presentation materials for graduate students including slides, posters, and executive summaries.</p>
-                            <div class="mb-6 mt-4 flex flex-wrap gap-2">
-                                <span class="chip">PowerPoint</span>
-                                <span class="chip">LaTeX</span>
-                                <span class="chip">Adobe Illustrator</span>
-                                <span class="chip">Research Methods</span>
-                            </div>
+                        <div class="flex flex-1 flex-col p-6 sm:p-8">
+                            <p class="overline text-brand-700">Healthcare ML · Published research</p>
+                            <h3 class="mt-2 text-xl font-semibold text-neutral-900">Cardiovascular Disease Risk Assessment</h3>
+                            <p class="mt-3 leading-relaxed text-neutral-600">A Flask web app that predicts a person's cardiovascular risk as Low, Intermediary or High from clinical and lifestyle data, with personalised recommendations. Built on my first-author research on Bangladeshi patient data.</p>
+                            <ul class="feature-list mt-5">
+                                <li>Inputs blood pressure, cholesterol, blood sugar, BMI and lifestyle factors</li><li>Weighted feature fusion with explainable AI (XAI)</li><li>Responsive medical UI with live validation and BMI auto-calculation</li>
+                            </ul>
+                            <div class="mb-6 mt-5 flex flex-wrap gap-2"><span class="chip">Python</span><span class="chip">Scikit-learn</span><span class="chip">Flask</span><span class="chip">Pandas</span><span class="chip">XAI</span></div>
                             <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
-                                <a href="#" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
-                                <a href="#" class="link-arrow"><i class="fas fa-external-link-alt" aria-hidden="true"></i>Demo</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 3 -->
-                    <article class="card card-hover reveal group flex flex-col overflow-hidden">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800"
-                                 alt="OCR Document Converter"
-                                 loading="lazy" decoding="async"
-                                 class="h-48 w-full object-cover transition-transform duration-300 ease-standard group-hover:scale-105" />
-                            <span class="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-brand-700 shadow-e100 backdrop-blur-sm">Data Processing</span>
-                        </div>
-                        <div class="flex flex-1 flex-col p-6">
-                            <h2 class="text-lg font-semibold text-neutral-900">OCR Document Converter</h2>
-                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">Intelligent document conversion system supporting multiple languages with advanced OCR capabilities.</p>
-                            <div class="mb-6 mt-4 flex flex-wrap gap-2">
-                                <span class="chip">Python</span>
-                                <span class="chip">Tesseract</span>
-                                <span class="chip">OpenCV</span>
-                                <span class="chip">Flask</span>
-                                <span class="chip">Multi-language OCR</span>
-                            </div>
-                            <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
-                                <a href="#" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
-                                <a href="#" class="link-arrow"><i class="fas fa-external-link-alt" aria-hidden="true"></i>Demo</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 4 -->
-                    <article class="card card-hover reveal group flex flex-col overflow-hidden">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=800"
-                                 alt="Research Paper Analysis Dashboard"
-                                 loading="lazy" decoding="async"
-                                 class="h-48 w-full object-cover transition-transform duration-300 ease-standard group-hover:scale-105" />
-                            <span class="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-brand-700 shadow-e100 backdrop-blur-sm">Data Visualization</span>
-                        </div>
-                        <div class="flex flex-1 flex-col p-6">
-                            <h2 class="text-lg font-semibold text-neutral-900">Research Paper Analysis Dashboard</h2>
-                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">Interactive dashboard for analyzing and summarizing academic papers with automated insight extraction.</p>
-                            <div class="mb-6 mt-4 flex flex-wrap gap-2">
-                                <span class="chip">Python</span>
-                                <span class="chip">Streamlit</span>
-                                <span class="chip">NLP</span>
-                                <span class="chip">Plotly</span>
-                                <span class="chip">TextBlob</span>
-                            </div>
-                            <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
-                                <a href="#" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
-                                <a href="#" class="link-arrow"><i class="fas fa-external-link-alt" aria-hidden="true"></i>Demo</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 5 -->
-                    <article class="card card-hover reveal group flex flex-col overflow-hidden">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.pexels.com/photos/590041/pexels-photo-590041.jpeg?auto=compress&cs=tinysrgb&w=800"
-                                 alt="Statistical Analysis Platform"
-                                 loading="lazy" decoding="async"
-                                 class="h-48 w-full object-cover transition-transform duration-300 ease-standard group-hover:scale-105" />
-                            <span class="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-brand-700 shadow-e100 backdrop-blur-sm">Statistical Analysis</span>
-                        </div>
-                        <div class="flex flex-1 flex-col p-6">
-                            <h2 class="text-lg font-semibold text-neutral-900">Statistical Analysis Platform</h2>
-                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">Web-based platform for conducting comprehensive statistical analysis with automated report generation.</p>
-                            <div class="mb-6 mt-4 flex flex-wrap gap-2">
-                                <span class="chip">R</span>
-                                <span class="chip">Shiny</span>
-                                <span class="chip">ggplot2</span>
-                                <span class="chip">Statistical Modeling</span>
-                                <span class="chip">Report Generation</span>
-                            </div>
-                            <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
-                                <a href="#" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
-                                <a href="#" class="link-arrow"><i class="fas fa-external-link-alt" aria-hidden="true"></i>Demo</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 6 -->
-                    <article class="card card-hover reveal group flex flex-col overflow-hidden">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800"
-                                 alt="Data Cleaning Automation Tool"
-                                 loading="lazy" decoding="async"
-                                 class="h-48 w-full object-cover transition-transform duration-300 ease-standard group-hover:scale-105" />
-                            <span class="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-brand-700 shadow-e100 backdrop-blur-sm">Data Processing</span>
-                        </div>
-                        <div class="flex flex-1 flex-col p-6">
-                            <h2 class="text-lg font-semibold text-neutral-900">Data Cleaning Automation Tool</h2>
-                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">Automated data preprocessing pipeline that handles missing values, outliers, and data transformation.</p>
-                            <div class="mb-6 mt-4 flex flex-wrap gap-2">
-                                <span class="chip">Python</span>
-                                <span class="chip">Pandas</span>
-                                <span class="chip">NumPy</span>
-                                <span class="chip">Data Validation</span>
-                                <span class="chip">Pipeline Automation</span>
-                            </div>
-                            <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
-                                <a href="#" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
-                                <a href="#" class="link-arrow"><i class="fas fa-external-link-alt" aria-hidden="true"></i>Demo</a>
+                                <a href="https://github.com/TasnimulIntazamAsif/CardioVascular_Disease_Risk_Prediction" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
                             </div>
                         </div>
                     </article>
                 </div>
+
+                <h2 class="sr-only">More projects</h2>
+                <div class="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-stagger>
+                    <article class="project card card-hover reveal flex flex-col overflow-hidden" data-category="cv web">
+                        <div class="proj-head proj-head--cv">
+                            <i class="fas fa-user-check proj-icon" aria-hidden="true"></i>
+                            <span class="proj-tag">Computer Vision</span>
+                            
+                        </div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-lg font-semibold text-neutral-900">Smart CCTV Face Attendance</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">Recognises faces from a webcam or CCTV feed, marks attendance automatically and shows the match accuracy for each person.</p>
+                            <ul class="feature-list feature-list--sm mt-4">
+                                <li>Multi-person tracking with BoT-SORT and unique IDs</li><li>Saves only sharp face images (blur detection)</li><li>Attendance log to CSV via a Flask UI</li>
+                            </ul>
+                            <div class="mb-6 mt-4 flex flex-wrap gap-2"><span class="chip">Flask</span><span class="chip">OpenCV</span><span class="chip">face_recognition</span><span class="chip">YOLOv8</span></div>
+                            <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
+                                <a href="https://github.com/TasnimulIntazamAsif/attendance_system_track" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project card card-hover reveal flex flex-col overflow-hidden" data-category="ml web">
+                        <div class="proj-head proj-head--ml">
+                            <i class="fas fa-brain proj-icon" aria-hidden="true"></i>
+                            <span class="proj-tag">Machine Learning</span>
+                            <span class="paper-badge"><i class="fas fa-file-lines" aria-hidden="true"></i>AII 2025 · 1st author</span>
+                        </div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-lg font-semibold text-neutral-900">Social Media Addiction &amp; Mental Health Predictor</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">Predicts mental health status from social media usage patterns and gives recommendations based on the result.</p>
+                            <ul class="feature-list feature-list--sm mt-4">
+                                <li>Survey-based dataset with full EDA</li><li>Ensemble ML framework</li><li>Interactive web form with instant results</li>
+                            </ul>
+                            <div class="mb-6 mt-4 flex flex-wrap gap-2"><span class="chip">Python</span><span class="chip">Scikit-learn</span><span class="chip">Seaborn</span><span class="chip">Flask</span></div>
+                            <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
+                                <a href="https://github.com/TasnimulIntazamAsif/Social_Media_Addiction" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
+                                <a href="https://social-media-addiction.vercel.app" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>Live demo</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project card card-hover reveal flex flex-col overflow-hidden" data-category="ml">
+                        <div class="proj-head proj-head--ml">
+                            <i class="fas fa-chart-line proj-icon" aria-hidden="true"></i>
+                            <span class="proj-tag">Machine Learning</span>
+                            
+                        </div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-lg font-semibold text-neutral-900">ACCURATE-Churn Studio</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">A calibrated, uncertainty-aware ensemble that predicts telecom customer churn and suggests which retention action helps most.</p>
+                            <ul class="feature-list feature-list--sm mt-4">
+                                <li>Calibrated stacked ensemble with decision threshold</li><li>SHAP explanations for each customer</li><li>Simulates retention interventions</li>
+                            </ul>
+                            <div class="mb-6 mt-4 flex flex-wrap gap-2"><span class="chip">Python</span><span class="chip">Scikit-learn</span><span class="chip">SHAP</span><span class="chip">Streamlit</span></div>
+                            <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
+                                <a href="https://github.com/TasnimulIntazamAsif/Customer-Churn-Prediction" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project card card-hover reveal flex flex-col overflow-hidden" data-category="ml">
+                        <div class="proj-head proj-head--ml">
+                            <i class="fas fa-ribbon proj-icon" aria-hidden="true"></i>
+                            <span class="proj-tag">Machine Learning</span>
+                            
+                        </div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-lg font-semibold text-neutral-900">Breast Cancer Classification</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">Classifies tumours as benign or malignant using classical ML models combined into an ensemble.</p>
+                            <ul class="feature-list feature-list--sm mt-4">
+                                <li>End-to-end notebook: EDA to evaluation</li><li>Saved ensemble model and scaler for inference</li><li>Reproducible preprocessing pipeline</li>
+                            </ul>
+                            <div class="mb-6 mt-4 flex flex-wrap gap-2"><span class="chip">Python</span><span class="chip">Scikit-learn</span><span class="chip">Pandas</span><span class="chip">Matplotlib</span></div>
+                            <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
+                                <a href="https://github.com/TasnimulIntazamAsif/Breast_Cancer_Classification" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project card card-hover reveal flex flex-col overflow-hidden" data-category="cv ml">
+                        <div class="proj-head proj-head--cv">
+                            <i class="fas fa-pen-nib proj-icon" aria-hidden="true"></i>
+                            <span class="proj-tag">Computer Vision</span>
+                            
+                        </div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-lg font-semibold text-neutral-900">Handwritten Character Recognition</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">A deep learning model that recognises 62 handwritten classes — digits 0–9 and letters A–Z in upper and lower case.</p>
+                            <ul class="feature-list feature-list--sm mt-4">
+                                <li>Transfer learning with VGG19</li><li>Image augmentation and preprocessing</li><li>ROC curves and confusion-matrix evaluation</li>
+                            </ul>
+                            <div class="mb-6 mt-4 flex flex-wrap gap-2"><span class="chip">TensorFlow</span><span class="chip">Keras</span><span class="chip">CNN</span><span class="chip">OpenCV</span></div>
+                            <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
+                                <a href="https://github.com/TasnimulIntazamAsif/Handwritten_Letter_Indentification" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project card card-hover reveal flex flex-col overflow-hidden" data-category="ai ml">
+                        <div class="proj-head proj-head--ai">
+                            <i class="fas fa-terminal proj-icon" aria-hidden="true"></i>
+                            <span class="proj-tag">AI &amp; NLP</span>
+                            
+                        </div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-lg font-semibold text-neutral-900">Hybrid Log Classification System</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">Classifies system logs with three layers — regex for simple patterns, embeddings for common ones and an LLM for rare ones.</p>
+                            <ul class="feature-list feature-list--sm mt-4">
+                                <li>Sentence Transformer + Logistic Regression</li><li>LLM fallback when labelled data is scarce</li><li>CSV upload through a FastAPI endpoint</li>
+                            </ul>
+                            <div class="mb-6 mt-4 flex flex-wrap gap-2"><span class="chip">FastAPI</span><span class="chip">BERT</span><span class="chip">LLM</span><span class="chip">Regex</span></div>
+                            <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
+                                <a href="https://github.com/TasnimulIntazamAsif/Log-Classification-System" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project card card-hover reveal flex flex-col overflow-hidden" data-category="ai web">
+                        <div class="proj-head proj-head--ai">
+                            <i class="fas fa-robot proj-icon" aria-hidden="true"></i>
+                            <span class="proj-tag">AI &amp; NLP</span>
+                            
+                        </div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-lg font-semibold text-neutral-900">ERP AI Support Agent</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">An AI support agent for ERP systems that answers and resolves common support tickets automatically from a knowledge base.</p>
+                            <ul class="feature-list feature-list--sm mt-4">
+                                <li>LLM agent built with LangChain</li><li>Knowledge base loading and retrieval</li><li>REST API served with FastAPI</li>
+                            </ul>
+                            <div class="mb-6 mt-4 flex flex-wrap gap-2"><span class="chip">Python</span><span class="chip">LangChain</span><span class="chip">OpenAI</span><span class="chip">FastAPI</span></div>
+                            <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
+                                <a href="https://github.com/TasnimulIntazamAsif/ERP-AI-support-AGENT" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project card card-hover reveal flex flex-col overflow-hidden" data-category="web">
+                        <div class="proj-head proj-head--web">
+                            <i class="fas fa-graduation-cap proj-icon" aria-hidden="true"></i>
+                            <span class="proj-tag">Web &amp; Software</span>
+                            
+                        </div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-lg font-semibold text-neutral-900">ExamVault — Online Examination System</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">A full exam platform where teachers sell question banks and run timed exams, and students take exams and book consultations.</p>
+                            <ul class="feature-list feature-list--sm mt-4">
+                                <li>Student, teacher and admin roles</li><li>Automatic grading and revenue tracking</li><li>Stripe payments and email notifications</li>
+                            </ul>
+                            <div class="mb-6 mt-4 flex flex-wrap gap-2"><span class="chip">Django</span><span class="chip">MySQL</span><span class="chip">Stripe</span><span class="chip">SMTP</span></div>
+                            <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
+                                <a href="https://github.com/TasnimulIntazamAsif/examvault" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project card card-hover reveal flex flex-col overflow-hidden" data-category="web">
+                        <div class="proj-head proj-head--web">
+                            <i class="fas fa-hospital proj-icon" aria-hidden="true"></i>
+                            <span class="proj-tag">Web &amp; Software</span>
+                            
+                        </div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-lg font-semibold text-neutral-900">Hospital Management System</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">Separate dashboards for patients, doctors, managers and administrators to run day-to-day hospital work.</p>
+                            <ul class="feature-list feature-list--sm mt-4">
+                                <li>Appointment booking and schedules</li><li>Payment verification and medical records</li><li>Secure messaging between users</li>
+                            </ul>
+                            <div class="mb-6 mt-4 flex flex-wrap gap-2"><span class="chip">PHP</span><span class="chip">HTML</span><span class="chip">CSS</span></div>
+                            <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
+                                <a href="https://github.com/TasnimulIntazamAsif/Hospital-Management-System" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
+                                <a href="https://hospital-management-system-green-ten.vercel.app" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>Live demo</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project card card-hover reveal flex flex-col overflow-hidden" data-category="ml">
+                        <div class="proj-head proj-head--ml">
+                            <i class="fas fa-film proj-icon" aria-hidden="true"></i>
+                            <span class="proj-tag">Machine Learning</span>
+                            
+                        </div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-lg font-semibold text-neutral-900">Movie Genre Analysis</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">Explores the IMDB Top 1000 dataset to find patterns in genres, ratings, runtime and earnings, with ML models for prediction.</p>
+                            <ul class="feature-list feature-list--sm mt-4">
+                                <li>Genre distribution and rating analysis</li><li>Statistical analysis of movie attributes</li><li>Clear visual storytelling</li>
+                            </ul>
+                            <div class="mb-6 mt-4 flex flex-wrap gap-2"><span class="chip">Pandas</span><span class="chip">Seaborn</span><span class="chip">Scikit-learn</span></div>
+                            <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
+                                <a href="https://github.com/TasnimulIntazamAsif/EDGE_Project-Movie_Genre" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
+                                <a href="https://edge-project-movie-genre.vercel.app" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>Live demo</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project card card-hover reveal flex flex-col overflow-hidden" data-category="web">
+                        <div class="proj-head proj-head--web">
+                            <i class="fas fa-file-word proj-icon" aria-hidden="true"></i>
+                            <span class="proj-tag">Web &amp; Software</span>
+                            
+                        </div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-lg font-semibold text-neutral-900">Multi-Language PDF to DOCX Converter</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">A desktop app that turns PDFs into editable Word files while keeping the layout, with right-to-left language support.</p>
+                            <ul class="feature-list feature-list--sm mt-4">
+                                <li>English, Arabic and Urdu (RTL) text</li><li>Keeps fonts, images and tables</li><li>Batch processing with progress tracking</li>
+                            </ul>
+                            <div class="mb-6 mt-4 flex flex-wrap gap-2"><span class="chip">Python</span><span class="chip">Desktop GUI</span><span class="chip">PDF processing</span></div>
+                            <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
+                                <a href="https://github.com/TasnimulIntazamAsif/File_Converter" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project card card-hover reveal flex flex-col overflow-hidden" data-category="web">
+                        <div class="proj-head proj-head--web">
+                            <i class="fas fa-plane proj-icon" aria-hidden="true"></i>
+                            <span class="proj-tag">Web &amp; Software</span>
+                            
+                        </div>
+                        <div class="flex flex-1 flex-col p-6">
+                            <h3 class="text-lg font-semibold text-neutral-900">Airplane Management System</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-neutral-600">Manages airline operations end to end — passenger registration, flight scheduling, ticket booking and cancellations.</p>
+                            <ul class="feature-list feature-list--sm mt-4">
+                                <li>Journey and booking management</li><li>Clean MVC architecture</li><li>Desktop interface</li>
+                            </ul>
+                            <div class="mb-6 mt-4 flex flex-wrap gap-2"><span class="chip">Java</span><span class="chip">MVC</span></div>
+                            <div class="mt-auto flex items-center gap-6 border-t border-neutral-200 pt-4">
+                                <a href="https://github.com/TasnimulIntazamAsif/Airplane-Management-System" target="_blank" rel="noopener noreferrer" class="link-arrow"><i class="fab fa-github" aria-hidden="true"></i>Code</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="reveal mt-10 flex flex-col items-center gap-3 text-center">
+                    <p class="text-neutral-600">80+ more experiments, practice projects and tools on GitHub.</p>
+                    <a href="https://github.com/TasnimulIntazamAsif?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-md btn-outline"><i class="fab fa-github" aria-hidden="true"></i>See all repositories</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section id="publications" class="bg-white py-16 sm:py-24">
+            <div class="container-page">
+                <div class="reveal max-w-2xl">
+                    <p class="overline text-brand-700">Research</p>
+                    <h2 class="t-h2 mt-3 text-neutral-900">Publications</h2>
+                    <p class="mt-4 text-lg leading-relaxed text-neutral-600">
+                        Peer-reviewed work in healthcare AI, deep learning and explainable machine learning — two as first author.
+                    </p>
+                </div>
+                <ol class="mt-12 grid gap-6 md:grid-cols-2" data-stagger>
+                    <li class="pub-card card reveal">
+                        <span class="pub-num" aria-hidden="true">01</span>
+                        <div>
+                            <div class="flex flex-wrap items-center gap-2">
+                                <span class="chip">Journal</span>
+                                <span class="chip chip-accent">1st author</span>
+                            </div>
+                            <h3 class="mt-3 font-semibold leading-snug text-neutral-900">Cardiovascular Disease Risk Classification Using Machine Learning with Weighted Feature Fusion and Explainable AI on Bangladeshi Clinical and Lifestyle Data</h3>
+                            <p class="mt-2 text-sm text-neutral-600"><i class="fas fa-book-open mr-2 text-brand-600" aria-hidden="true"></i>Indonesian Journal of Electrical Engineering and Informatics (IJEEI)</p>
+                        </div>
+                    </li>
+                    <li class="pub-card card reveal">
+                        <span class="pub-num" aria-hidden="true">02</span>
+                        <div>
+                            <div class="flex flex-wrap items-center gap-2">
+                                <span class="chip">Conference</span>
+                                <span class="chip chip-accent">1st author</span>
+                            </div>
+                            <h3 class="mt-3 font-semibold leading-snug text-neutral-900">An Ensemble Machine Learning Framework for Predicting Mental Health States in Addictive and Inappropriate Social Media Usage: Insights from Bangladesh</h3>
+                            <p class="mt-2 text-sm text-neutral-600"><i class="fas fa-book-open mr-2 text-brand-600" aria-hidden="true"></i>Applied Intelligence and Informatics (AII 2025)</p>
+                        </div>
+                    </li>
+                    <li class="pub-card card reveal">
+                        <span class="pub-num" aria-hidden="true">03</span>
+                        <div>
+                            <div class="flex flex-wrap items-center gap-2">
+                                <span class="chip">Conference</span>
+                                <span class="chip chip-accent">3rd author</span>
+                            </div>
+                            <h3 class="mt-3 font-semibold leading-snug text-neutral-900">A Comparative Study of Transfer Learning Models for Cotton Plant Anomaly Identification with Explainable AI</h3>
+                            <p class="mt-2 text-sm text-neutral-600"><i class="fas fa-book-open mr-2 text-brand-600" aria-hidden="true"></i>RAAICON 2025</p>
+                        </div>
+                    </li>
+                    <li class="pub-card card reveal">
+                        <span class="pub-num" aria-hidden="true">04</span>
+                        <div>
+                            <div class="flex flex-wrap items-center gap-2">
+                                <span class="chip">Conference</span>
+                                <span class="chip chip-accent">5th author</span>
+                            </div>
+                            <h3 class="mt-3 font-semibold leading-snug text-neutral-900">Deep Learning-Based Classification of Ischemic Stroke Using Brain CT Scans</h3>
+                            <p class="mt-2 text-sm text-neutral-600"><i class="fas fa-book-open mr-2 text-brand-600" aria-hidden="true"></i>IDAA 2025</p>
+                        </div>
+                    </li>
+                </ol>
             </div>
         </section>
 
@@ -442,15 +648,15 @@
     <!-- Footer -->
     <footer class="bg-neutral-900 text-neutral-400">
         <div class="container-page">
-            <div class="grid gap-12 py-16 lg:grid-cols-4">
-                <div class="lg:col-span-2">
+            <div class="grid gap-10 py-12 sm:grid-cols-2 sm:py-16 lg:grid-cols-4 lg:gap-12">
+                <div class="sm:col-span-2">
                     <div class="flex items-center gap-3">
                         <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-600 text-sm font-bold text-white" aria-hidden="true">TA</span>
                         <span class="text-lg font-semibold text-white">Tasnimul Intazam Asif</span>
                     </div>
                     <p class="mt-4 max-w-md leading-relaxed">
-                        Machine Learning Specialist and Academic Research Expert dedicated to transforming
-                        data into actionable insights and helping researchers achieve academic excellence.
+                        Python Developer and Machine Learning Engineer building practical AI for computer
+                        vision and healthcare, with published research in explainable machine learning.
                     </p>
                     <div class="mt-6 flex flex-wrap gap-2">
                         <a href="https://www.linkedin.com/in/asif2896" target="_blank" rel="noopener noreferrer" class="icon-btn-dark" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
@@ -543,5 +749,6 @@
             revealEls.forEach(function (el) { el.classList.add('is-visible'); });
         }
     </script>
+    <script src="assets/site.js"></script>
 </body>
 </html>

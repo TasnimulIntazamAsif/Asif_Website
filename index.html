@@ -7,7 +7,7 @@
     <meta name="description" content="Portfolio of Tasnimul Intazam Asif — Python developer, AI engineer and academic research expert specialising in machine learning, data analysis and research support.">
     <meta name="theme-color" content="#4F46E5">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234F46E5'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='26' font-weight='700' fill='%23FFFFFF' text-anchor='middle'%3ETA%3C/text%3E%3C/svg%3E">
-    <script>document.documentElement.className += ' js';</script>
+    <script>(function(d){d.className+=' js';try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))d.classList.add('dark');}catch(e){}})(document.documentElement);</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -199,6 +199,8 @@
             .card, .btn, .icon-btn, .icon-btn-dark { transition: none; }
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+    <link rel="stylesheet" href="assets/site.css">
 </head>
 <body class="bg-white text-neutral-900">
     <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-neutral-900 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">Skip to content</a>
@@ -213,7 +215,7 @@
                 </a>
 
                 <!-- Desktop navigation -->
-                <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+                <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
                     <a href="index.html" class="nav-link active" aria-current="page"><i class="fas fa-home" aria-hidden="true"></i>Home</a>
                     <a href="about.html" class="nav-link"><i class="fas fa-user" aria-hidden="true"></i>About</a>
                     <a href="services.html" class="nav-link"><i class="fas fa-briefcase" aria-hidden="true"></i>Services</a>
@@ -222,12 +224,15 @@
                 </nav>
 
                 <div class="flex items-center gap-2">
+                    <button type="button" class="icon-btn theme-toggle" aria-pressed="false" aria-label="Switch to dark mode" title="Dark mode">
+                        <i class="fas fa-moon" aria-hidden="true"></i><i class="fas fa-sun" aria-hidden="true"></i>
+                    </button>
                     <div class="hidden sm:block">
                         <a href="#" id="download-cv-btn" class="btn btn-md btn-primary">
                             <i class="fas fa-download" aria-hidden="true"></i>Download CV
                         </a>
                     </div>
-                    <div class="md:hidden">
+                    <div class="lg:hidden">
                         <button id="mobile-menu-btn" type="button" class="icon-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
                             <i class="fas fa-bars" aria-hidden="true"></i>
                         </button>
@@ -236,7 +241,7 @@
             </div>
 
             <!-- Mobile navigation -->
-            <div id="mobile-menu" class="hidden border-t border-neutral-200 py-4 md:hidden">
+            <div id="mobile-menu" class="hidden border-t border-neutral-200 py-4 lg:hidden">
                 <nav class="flex flex-col gap-1" aria-label="Mobile">
                     <a href="index.html" class="nav-link active" aria-current="page"><i class="fas fa-home" aria-hidden="true"></i>Home</a>
                     <a href="about.html" class="nav-link"><i class="fas fa-user" aria-hidden="true"></i>About</a>
@@ -249,6 +254,7 @@
                 </a>
             </div>
         </div>
+        <div class="scroll-progress" aria-hidden="true"></div>
     </header>
 
     <main id="main">
@@ -263,15 +269,16 @@
                         <p class="overline text-brand-700">Hello, I'm</p>
                         <h1 class="font-display display-hero mt-4 text-balance text-neutral-900">Tasnimul Intazam Asif</h1>
                         <p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-600">
-                            Machine Learning Specialist and Academic Research Expert dedicated to transforming
-                            data into actionable insights and helping researchers achieve academic excellence.
+                            Python Developer and Machine Learning Engineer building practical AI for computer
+                            vision and healthcare: real-time YOLO detection, clinical risk models, REST APIs
+                            and AI automation.
                         </p>
 
                         <ul class="mt-6 flex flex-wrap gap-2" aria-label="Roles">
                             <li class="chip">Python Developer</li>
-                            <li class="chip">AI Engineer</li>
+                            <li class="chip">ML Engineer</li>
+                            <li class="chip">Computer Vision</li>
                             <li class="chip">Researcher</li>
-                            <li class="chip">Data Analyst</li>
                         </ul>
 
                         <div class="mt-8 flex flex-wrap items-center gap-3">
@@ -282,6 +289,25 @@
                                 <i class="fas fa-download" aria-hidden="true"></i>Download CV
                             </a>
                         </div>
+
+                        <!-- Stats (from CV and GitHub) -->
+                        <dl class="mt-10 grid max-w-lg grid-cols-3 gap-6">
+                            <div>
+                                <dt class="sr-only">Research publications</dt>
+                                <dd class="stat-num" data-count="4">4</dd>
+                                <dd class="stat-label">Research publications</dd>
+                            </div>
+                            <div>
+                                <dt class="sr-only">Public GitHub repositories</dt>
+                                <dd class="stat-num" data-count="80" data-suffix="+">80+</dd>
+                                <dd class="stat-label">GitHub repositories</dd>
+                            </div>
+                            <div>
+                                <dt class="sr-only">CGPA</dt>
+                                <dd class="stat-num">3.94</dd>
+                                <dd class="stat-label">CGPA, CSE at IUBAT</dd>
+                            </div>
+                        </dl>
 
                         <div class="mt-8 flex flex-wrap gap-4 border-t border-neutral-200 pt-4">
                             <a href="https://github.com/TasnimulIntazamAsif" target="_blank" rel="noopener noreferrer" class="social-text">
@@ -297,11 +323,26 @@
                     </div>
 
                     <!-- Portrait -->
-                    <div class="reveal relative mx-auto w-full max-w-md lg:mr-0 lg:ml-auto">
-                        <div class="absolute inset-0 translate-x-4 translate-y-4 rounded-2xl bg-brand-50" aria-hidden="true"></div>
-                        <img src="image/asif%20image.png" alt="Portrait of Tasnimul Intazam Asif"
-                             class="relative aspect-[4/5] w-full rounded-2xl border border-neutral-200 object-cover shadow-e200"
-                             width="800" height="1000" />
+                    <div class="reveal mx-auto w-full max-w-sm px-6 sm:max-w-md lg:mr-0 lg:ml-auto">
+                        <div class="portrait-wrap">
+                            <div class="portrait-glow" aria-hidden="true"></div>
+                            <div class="portrait-frame">
+                                <img src="image/asif-800.webp" alt="Portrait of Tasnimul Intazam Asif"
+                                     class="aspect-square w-full object-cover"
+                                     width="800" height="800" fetchpriority="high" />
+                            </div>
+
+                            <div class="portrait-info">
+                                <div class="portrait-info-item">
+                                    <span class="badge-icon" aria-hidden="true"><i class="fas fa-briefcase"></i></span>
+                                    <span>Software Developer<small>at Akij iBOS</small></span>
+                                </div>
+                                <div class="portrait-info-item">
+                                    <span class="badge-icon" aria-hidden="true"><i class="fas fa-file-lines"></i></span>
+                                    <span>4 Publications<small>Healthcare AI research</small></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -318,7 +359,7 @@
                     </p>
                 </div>
 
-                <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
                     <article class="card card-hover reveal p-6">
                         <div class="icon-tile" aria-hidden="true"><i class="fas fa-brain"></i></div>
                         <h3 class="mt-6 text-xl font-semibold text-neutral-900">Machine Learning Models</h3>
@@ -353,6 +394,70 @@
             </div>
         </section>
 
+        <!-- How I work -->
+        <section id="process" class="bg-white py-16 sm:py-24">
+            <div class="container-page">
+                <div class="reveal mx-auto max-w-2xl text-center">
+                    <p class="overline text-brand-700">Process</p>
+                    <h2 class="t-h2 mt-3 text-neutral-900">How I work</h2>
+                    <p class="mt-4 text-lg leading-relaxed text-neutral-600">
+                        A clear, four-step process so you always know where your project stands.
+                    </p>
+                </div>
+
+                <ol class="steps mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6" data-stagger>
+                    <li class="reveal relative text-center">
+                        <span class="step-num mx-auto">1</span>
+                        <h3 class="mt-6 text-lg font-semibold text-neutral-900">Discuss</h3>
+                        <p class="mt-2 text-sm leading-relaxed text-neutral-600">We talk through your goals, data and deadline, and agree on what success looks like.</p>
+                    </li>
+                    <li class="reveal relative text-center">
+                        <span class="step-num mx-auto">2</span>
+                        <h3 class="mt-6 text-lg font-semibold text-neutral-900">Plan</h3>
+                        <p class="mt-2 text-sm leading-relaxed text-neutral-600">I propose the approach, tools and milestones, so the scope and price are clear up front.</p>
+                    </li>
+                    <li class="reveal relative text-center">
+                        <span class="step-num mx-auto">3</span>
+                        <h3 class="mt-6 text-lg font-semibold text-neutral-900">Build</h3>
+                        <p class="mt-2 text-sm leading-relaxed text-neutral-600">I clean the data, build and test the models or write the research, with regular updates.</p>
+                    </li>
+                    <li class="reveal relative text-center">
+                        <span class="step-num mx-auto">4</span>
+                        <h3 class="mt-6 text-lg font-semibold text-neutral-900">Deliver</h3>
+                        <p class="mt-2 text-sm leading-relaxed text-neutral-600">You get clean code, results and documentation, plus support for revisions.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Tech stack -->
+        <section id="tools" class="border-y border-neutral-200 bg-neutral-50 py-16 sm:py-24">
+            <div class="container-page">
+                <div class="reveal max-w-2xl">
+                    <p class="overline text-brand-700">Toolkit</p>
+                    <h2 class="t-h2 mt-3 text-neutral-900">Tools I work with</h2>
+                    <p class="mt-4 text-lg leading-relaxed text-neutral-600">
+                        Proven libraries and platforms for machine learning, analysis and research writing.
+                    </p>
+                </div>
+
+                <ul class="mt-12 grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-6" data-stagger>
+                    <li class="tech-tile reveal"><i class="devicon-python-plain colored" aria-hidden="true"></i>Python</li>
+                    <li class="tech-tile reveal"><i class="devicon-pytorch-original colored" aria-hidden="true"></i>PyTorch / YOLO</li>
+                    <li class="tech-tile reveal"><i class="devicon-tensorflow-original colored" aria-hidden="true"></i>TensorFlow</li>
+                    <li class="tech-tile reveal"><i class="devicon-scikitlearn-plain colored" aria-hidden="true"></i>scikit-learn</li>
+                    <li class="tech-tile reveal"><i class="devicon-opencv-plain colored" aria-hidden="true"></i>OpenCV</li>
+                    <li class="tech-tile reveal"><i class="devicon-pandas-plain colored" aria-hidden="true"></i>Pandas</li>
+                    <li class="tech-tile reveal"><i class="devicon-fastapi-plain colored" aria-hidden="true"></i>FastAPI</li>
+                    <li class="tech-tile reveal"><i class="devicon-django-plain colored" aria-hidden="true"></i>Django</li>
+                    <li class="tech-tile reveal"><i class="devicon-flask-original colored" aria-hidden="true"></i>Flask</li>
+                    <li class="tech-tile reveal"><i class="devicon-postgresql-plain colored" aria-hidden="true"></i>PostgreSQL</li>
+                    <li class="tech-tile reveal"><i class="devicon-mysql-original colored" aria-hidden="true"></i>MySQL</li>
+                    <li class="tech-tile reveal"><i class="devicon-git-plain colored" aria-hidden="true"></i>Git</li>
+                </ul>
+            </div>
+        </section>
+
         <!-- CTA band -->
         <section class="py-16 sm:py-24">
             <div class="container-page">
@@ -379,15 +484,15 @@
     <!-- Footer -->
     <footer class="bg-neutral-900 text-neutral-400">
         <div class="container-page">
-            <div class="grid gap-12 py-16 lg:grid-cols-4">
-                <div class="lg:col-span-2">
+            <div class="grid gap-10 py-12 sm:grid-cols-2 sm:py-16 lg:grid-cols-4 lg:gap-12">
+                <div class="sm:col-span-2">
                     <div class="flex items-center gap-3">
                         <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-600 text-sm font-bold text-white" aria-hidden="true">TA</span>
                         <span class="text-lg font-semibold text-white">Tasnimul Intazam Asif</span>
                     </div>
                     <p class="mt-4 max-w-md leading-relaxed">
-                        Machine Learning Specialist and Academic Research Expert dedicated to transforming
-                        data into actionable insights and helping researchers achieve academic excellence.
+                        Python Developer and Machine Learning Engineer building practical AI for computer
+                        vision and healthcare, with published research in explainable machine learning.
                     </p>
                     <div class="mt-6 flex flex-wrap gap-2">
                         <a href="https://www.linkedin.com/in/asif2896" target="_blank" rel="noopener noreferrer" class="icon-btn-dark" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
@@ -480,5 +585,6 @@
             revealEls.forEach(function (el) { el.classList.add('is-visible'); });
         }
     </script>
+    <script src="assets/site.js"></script>
 </body>
 </html>

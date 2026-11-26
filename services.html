@@ -7,7 +7,7 @@
     <meta name="description" content="Machine learning model building, academic writing support, data analysis and custom data solutions by Tasnimul Intazam Asif.">
     <meta name="theme-color" content="#4F46E5">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234F46E5'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='26' font-weight='700' fill='%23FFFFFF' text-anchor='middle'%3ETA%3C/text%3E%3C/svg%3E">
-    <script>document.documentElement.className += ' js';</script>
+    <script>(function(d){d.className+=' js';try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))d.classList.add('dark');}catch(e){}})(document.documentElement);</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -186,6 +186,7 @@
             .card, .btn, .icon-btn, .icon-btn-dark { transition: none; }
         }
     </style>
+    <link rel="stylesheet" href="assets/site.css">
 </head>
 <body class="bg-white text-neutral-900">
     <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-neutral-900 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">Skip to content</a>
@@ -200,7 +201,7 @@
                 </a>
 
                 <!-- Desktop navigation -->
-                <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+                <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
                     <a href="index.html" class="nav-link"><i class="fas fa-home" aria-hidden="true"></i>Home</a>
                     <a href="about.html" class="nav-link"><i class="fas fa-user" aria-hidden="true"></i>About</a>
                     <a href="services.html" class="nav-link active" aria-current="page"><i class="fas fa-briefcase" aria-hidden="true"></i>Services</a>
@@ -209,12 +210,15 @@
                 </nav>
 
                 <div class="flex items-center gap-2">
+                    <button type="button" class="icon-btn theme-toggle" aria-pressed="false" aria-label="Switch to dark mode" title="Dark mode">
+                        <i class="fas fa-moon" aria-hidden="true"></i><i class="fas fa-sun" aria-hidden="true"></i>
+                    </button>
                     <div class="hidden sm:block">
                         <a href="#" id="download-cv-btn" class="btn btn-md btn-primary">
                             <i class="fas fa-download" aria-hidden="true"></i>Download CV
                         </a>
                     </div>
-                    <div class="md:hidden">
+                    <div class="lg:hidden">
                         <button id="mobile-menu-btn" type="button" class="icon-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
                             <i class="fas fa-bars" aria-hidden="true"></i>
                         </button>
@@ -223,7 +227,7 @@
             </div>
 
             <!-- Mobile navigation -->
-            <div id="mobile-menu" class="hidden border-t border-neutral-200 py-4 md:hidden">
+            <div id="mobile-menu" class="hidden border-t border-neutral-200 py-4 lg:hidden">
                 <nav class="flex flex-col gap-1" aria-label="Mobile">
                     <a href="index.html" class="nav-link"><i class="fas fa-home" aria-hidden="true"></i>Home</a>
                     <a href="about.html" class="nav-link"><i class="fas fa-user" aria-hidden="true"></i>About</a>
@@ -236,20 +240,33 @@
                 </a>
             </div>
         </div>
+        <div class="scroll-progress" aria-hidden="true"></div>
     </header>
 
     <main id="main">
         <!-- Page banner -->
-        <section class="relative overflow-hidden bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800 pb-16 pt-24 sm:pb-24 sm:pt-40">
+        <section class="banner-services relative overflow-hidden bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800 pb-16 pt-24 sm:pb-24 sm:pt-36">
             <div class="banner-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
             <div class="banner-glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
+            <div class="banner-orb -right-24 -top-20" aria-hidden="true"></div>
             <div class="container-page relative">
-                <div class="max-w-3xl">
-                    <p class="overline text-brand-200">What I offer</p>
-                    <h1 class="t-h1 mt-4 text-white">Services Offered</h1>
-                    <p class="mt-4 text-lg leading-relaxed text-brand-100">
-                        Comprehensive data science and academic research services tailored to your needs
-                    </p>
+                <div class="grid items-center gap-10 lg:grid-cols-[1fr_380px]">
+                    <div class="max-w-3xl">
+                        <nav aria-label="Breadcrumb" class="breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right" aria-hidden="true"></i><span aria-current="page">Services</span></nav>
+                        <p class="overline mt-6 text-brand-200">What I offer</p>
+                        <h1 class="t-h1 mt-4 text-white">Services Offered</h1>
+                        <p class="mt-4 text-lg leading-relaxed text-brand-100">
+                            Comprehensive data science and academic research services tailored to your needs
+                        </p>
+                    </div>
+                    <div class="glass reveal grid grid-cols-3 gap-3 p-4">
+                        <a href="#services" class="glass-tile"><i class="fas fa-brain" aria-hidden="true"></i>ML Models</a>
+                        <a href="#services" class="glass-tile"><i class="fas fa-graduation-cap" aria-hidden="true"></i>Thesis Support</a>
+                        <a href="#services" class="glass-tile"><i class="fas fa-chart-pie" aria-hidden="true"></i>Data &amp; Viz</a>
+                        <a href="#services" class="glass-tile"><i class="fas fa-file-word" aria-hidden="true"></i>PDF to DOCX</a>
+                        <a href="#services" class="glass-tile"><i class="fas fa-file-lines" aria-hidden="true"></i>Summaries</a>
+                        <a href="#services" class="glass-tile"><i class="fas fa-puzzle-piece" aria-hidden="true"></i>Custom</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -257,7 +274,7 @@
         <!-- Services -->
         <section id="services" class="bg-neutral-50 py-16 sm:py-24">
             <div class="container-page">
-                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-stagger>
                     <!-- Service 1 -->
                     <article class="card card-hover reveal flex flex-col p-6 sm:p-8">
                         <div class="icon-tile" aria-hidden="true"><i class="fas fa-brain"></i></div>
@@ -389,15 +406,15 @@
     <!-- Footer -->
     <footer class="bg-neutral-900 text-neutral-400">
         <div class="container-page">
-            <div class="grid gap-12 py-16 lg:grid-cols-4">
-                <div class="lg:col-span-2">
+            <div class="grid gap-10 py-12 sm:grid-cols-2 sm:py-16 lg:grid-cols-4 lg:gap-12">
+                <div class="sm:col-span-2">
                     <div class="flex items-center gap-3">
                         <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-600 text-sm font-bold text-white" aria-hidden="true">TA</span>
                         <span class="text-lg font-semibold text-white">Tasnimul Intazam Asif</span>
                     </div>
                     <p class="mt-4 max-w-md leading-relaxed">
-                        Machine Learning Specialist and Academic Research Expert dedicated to transforming
-                        data into actionable insights and helping researchers achieve academic excellence.
+                        Python Developer and Machine Learning Engineer building practical AI for computer
+                        vision and healthcare, with published research in explainable machine learning.
                     </p>
                     <div class="mt-6 flex flex-wrap gap-2">
                         <a href="https://www.linkedin.com/in/asif2896" target="_blank" rel="noopener noreferrer" class="icon-btn-dark" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
@@ -490,5 +507,6 @@
             revealEls.forEach(function (el) { el.classList.add('is-visible'); });
         }
     </script>
+    <script src="assets/site.js"></script>
 </body>
 </html>
