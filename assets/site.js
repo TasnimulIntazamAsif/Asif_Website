@@ -43,14 +43,58 @@
     document.querySelectorAll('[data-stagger]').forEach(function (group) {
         Array.prototype.forEach.call(group.querySelectorAll('.reveal'), function (el, i) {
             if (reduceMotion) return;
-            el.style.transitionDelay = (i % 6) * 80 + 'ms';
-            // Drop the delay once the element has appeared, so hover effects stay instant.
-            el.addEventListener('transitionend', function clear() {
-                el.style.transitionDelay = '';
-                el.removeEventListener('transitionend', clear);
-            });
+            el.style.transitionDelay = (i % 6) * 85 + 'ms';
         });
     });
+
+    /* Once an element has finished revealing, drop the reveal classes and delay
+       so its own hover transitions (cards lifting etc.) are quick again. */
+    if (!reduceMotion) {
+        document.querySelectorAll('.reveal').forEach(function (el) {
+            el.addEventListener('transitionend', function done(e) {
+                if (e.target !== el || e.propertyName !== 'opacity' || !el.classList.contains('is-visible')) return;
+                el.style.transitionDelay = '';
+                el.classList.remove('reveal', 'is-visible');
+                el.removeEventListener('transitionend', done);
+            });
+        });
+    }
+
+    /* ---------- Word-by-word heading reveal ---------- */
+    if (!reduceMotion) {
+        var splitTargets = document.querySelectorAll('[data-split-words], h2.t-h2');
+        var splitIO = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) { entry.target.classList.add('is-split-in'); splitIO.unobserve(entry.target); }
+            });
+        }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' }) : null;
+
+        splitTargets.forEach(function (el) {
+            if (el.children.length) return; // only plain-text headings
+            var text = el.textContent.trim();
+            if (!text) return;
+            var base = parseInt(el.getAttribute('data-split-delay') || '0', 10);
+            el.setAttribute('aria-label', text);
+            el.textContent = '';
+            text.split(/\s+/).forEach(function (word, i) {
+                var outer = document.createElement('span');
+                outer.className = 'split-word';
+                outer.setAttribute('aria-hidden', 'true');
+                var inner = document.createElement('span');
+                inner.textContent = word;
+                inner.style.transitionDelay = (base + i * 60) + 'ms';
+                outer.appendChild(inner);
+                el.appendChild(outer);
+                el.appendChild(document.createTextNode(' '));
+            });
+            if (el.hasAttribute('data-split-words') || !splitIO) {
+                // Page-banner and hero headings play as part of the load sequence
+                requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.add('is-split-in'); }); });
+            } else {
+                splitIO.observe(el);
+            }
+        });
+    }
 
     /* ---------- Count-up numbers ---------- */
     var counters = document.querySelectorAll('[data-count]');

@@ -378,3 +378,75 @@ dl.glass .glass-label { white-space: nowrap; }
     .proj-head--lg.has-shot { height: 200px; }
 }
 @media (prefers-reduced-motion: reduce) { .proj-shot { transition: none; } }
+
+/* ---------------------------------------------------------------------
+   12. Motion v2 — load sequence, word reveal, softer easing, marquee,
+       portrait edge fade
+   --------------------------------------------------------------------- */
+:root { --ease-out: cubic-bezier(.22, 1, .36, 1); }
+
+/* Softer, longer scroll reveal (overrides each page's inline .reveal rules) */
+.js .reveal { transform: translateY(26px); }
+.js .reveal.is-visible { transition: opacity .8s var(--ease-out), transform .8s var(--ease-out); }
+
+/* Page-load sequence: header first, then each [data-load] item by its --d step */
+.js body > header { animation: load-down .7s var(--ease-out) both; }
+.js [data-load] {
+    opacity: 0; transform: translateY(20px);
+    animation: load-up .9s var(--ease-out) forwards;
+    animation-delay: calc(var(--d, 0) * 110ms + 120ms);
+}
+@keyframes load-up   { to { opacity: 1; transform: none; } }
+@keyframes load-down { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: none; } }
+
+/* Word-by-word heading reveal (words rise out of a mask) */
+.split-word {
+    display: inline-block; overflow: hidden; vertical-align: top;
+    padding-bottom: .14em; margin-bottom: -.14em; /* room for descenders like g, y, p */
+}
+.split-word > span { display: inline-block; transform: translateY(110%); transition: transform .9s var(--ease-out); }
+.is-split-in .split-word > span { transform: none; }
+
+/* Tech marquee */
+.marquee {
+    position: relative; overflow: hidden; padding: 20px 0;
+    border-block: 1px solid var(--n-200); background: var(--n-0);
+}
+.marquee::before, .marquee::after { /* soft fade at both edges */
+    content: ""; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 1; pointer-events: none;
+}
+.marquee::before { left: 0;  background: linear-gradient(90deg, var(--n-0), transparent); }
+.marquee::after  { right: 0; background: linear-gradient(-90deg, var(--n-0), transparent); }
+.marquee-track { display: flex; width: max-content; animation: marquee 45s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-group { display: flex; flex: none; gap: 56px; padding-right: 56px; }
+.marquee-group li {
+    display: inline-flex; align-items: center; gap: 10px; white-space: nowrap;
+    font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--n-500);
+    transition: color .2s var(--ease-standard);
+}
+.marquee-group li i { font-size: 18px; color: var(--n-400); transition: color .2s var(--ease-standard); }
+.marquee-group li:hover, .marquee-group li:hover i { color: var(--brand-700); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (max-width: 639px) {
+    .marquee { padding: 16px 0; }
+    .marquee::before, .marquee::after { width: 48px; }
+    .marquee-group { gap: 36px; padding-right: 36px; }
+}
+
+/* Portrait: photo edges fade into the page instead of sitting in a box */
+.portrait-frame { background: none; border: 0; padding: 0; box-shadow: none; overflow: visible; }
+.portrait-frame img {
+    border-radius: 0;
+    /* closest-side keeps the fade fully transparent at every edge of the square photo */
+    -webkit-mask-image: radial-gradient(closest-side at 50% 46%, #000 60%, transparent 100%);
+            mask-image: radial-gradient(closest-side at 50% 46%, #000 60%, transparent 100%);
+}
+.portrait-glow { inset: 6% 0 8% 0; border-radius: 9999px; filter: blur(48px); }
+
+@media (prefers-reduced-motion: reduce) {
+    .js [data-load], .js body > header { animation: none; opacity: 1; transform: none; }
+    .split-word > span { transform: none; transition: none; }
+    .marquee-track { animation: none; }
+    .marquee { overflow-x: auto; }
+}

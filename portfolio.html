@@ -252,14 +252,14 @@
             <div class="container-page relative">
                 <div class="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
                     <div class="max-w-3xl">
-                        <nav aria-label="Breadcrumb" class="breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right" aria-hidden="true"></i><span aria-current="page">Portfolio</span></nav>
-                        <p class="overline mt-6 text-brand-200">Selected work</p>
-                        <h1 class="t-h1 mt-4 text-white">Portfolio</h1>
-                        <p class="mt-4 text-lg leading-relaxed text-brand-100">
+                        <nav aria-label="Breadcrumb" class="breadcrumb" data-load style="--d:0"><a href="index.html">Home</a><i class="fas fa-chevron-right" aria-hidden="true"></i><span aria-current="page">Portfolio</span></nav>
+                        <p class="overline mt-6 text-brand-200" data-load style="--d:1">Selected work</p>
+                        <h1 class="t-h1 mt-4 text-white" data-split-words data-split-delay="200">Portfolio</h1>
+                        <p class="mt-4 text-lg leading-relaxed text-brand-100" data-load style="--d:4">
                             Real projects in computer vision, healthcare AI, LLM tools and full-stack web, with code, live demos and the research behind them
                         </p>
                     </div>
-                    <dl class="glass reveal grid grid-cols-3 divide-x divide-white/10 px-2 py-6">
+                    <dl data-load style="--d:5" class="glass grid grid-cols-3 divide-x divide-white/10 px-2 py-6">
                         <div class="flex flex-col-reverse px-3 text-center sm:px-6">
                             <dt class="glass-label mt-2">Projects</dt>
                             <dd class="glass-stat" data-count="14">14</dd>

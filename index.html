@@ -265,23 +265,23 @@
 
             <div class="container-page relative">
                 <div class="grid items-center gap-12 lg:grid-cols-2">
-                    <div class="reveal">
-                        <p class="overline text-brand-700">Hello, I'm</p>
-                        <h1 class="font-display display-hero mt-4 text-balance text-neutral-900">Tasnimul Intazam Asif</h1>
-                        <p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-600">
+                    <div>
+                        <p class="overline text-brand-700" data-load style="--d:0">Hello, I'm</p>
+                        <h1 class="font-display display-hero mt-4 text-balance text-neutral-900" data-split-words data-split-delay="150">Tasnimul Intazam Asif</h1>
+                        <p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-600" data-load style="--d:3">
                             Python Developer and Machine Learning Engineer building practical AI for computer
                             vision and healthcare: real-time YOLO detection, clinical risk models, REST APIs
                             and AI automation.
                         </p>
 
-                        <ul class="mt-6 flex flex-wrap gap-2" aria-label="Roles">
+                        <ul class="mt-6 flex flex-wrap gap-2" aria-label="Roles" data-load style="--d:4">
                             <li class="chip">Python Developer</li>
                             <li class="chip">ML Engineer</li>
                             <li class="chip">Computer Vision</li>
                             <li class="chip">Researcher</li>
                         </ul>
 
-                        <div class="mt-8 flex flex-wrap items-center gap-3">
+                        <div class="mt-8 flex flex-wrap items-center gap-3" data-load style="--d:5">
                             <a href="portfolio.html" class="btn btn-lg btn-primary">
                                 View my work<i class="fas fa-arrow-right" aria-hidden="true"></i>
                             </a>
@@ -291,7 +291,7 @@
                         </div>
 
                         <!-- Stats (from CV and GitHub) -->
-                        <dl class="mt-10 grid max-w-lg grid-cols-3 gap-6">
+                        <dl class="mt-10 grid max-w-lg grid-cols-3 gap-6" data-load style="--d:6">
                             <div>
                                 <dt class="sr-only">Research publications</dt>
                                 <dd class="stat-num" data-count="4">4</dd>
@@ -309,7 +309,7 @@
                             </div>
                         </dl>
 
-                        <div class="mt-8 flex flex-wrap gap-4 border-t border-neutral-200 pt-4">
+                        <div class="mt-8 flex flex-wrap gap-4 border-t border-neutral-200 pt-4" data-load style="--d:7">
                             <a href="https://github.com/TasnimulIntazamAsif" target="_blank" rel="noopener noreferrer" class="social-text">
                                 <i class="fab fa-github" aria-hidden="true"></i>GitHub
                             </a>
@@ -323,7 +323,7 @@
                     </div>
 
                     <!-- Portrait -->
-                    <div class="reveal mx-auto w-full max-w-sm px-6 sm:max-w-md lg:mr-0 lg:ml-auto">
+                    <div class="mx-auto w-full max-w-sm px-6 sm:max-w-md lg:mr-0 lg:ml-auto" data-load style="--d:2">
                         <div class="portrait-wrap">
                             <div class="portrait-glow" aria-hidden="true"></div>
                             <div class="portrait-frame">
@@ -345,6 +345,14 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Tech marquee -->
+        <section class="marquee" aria-label="Technologies I use">
+            <div class="marquee-track">
+                <ul class="marquee-group"><li><i class="devicon-python-plain" aria-hidden="true"></i>Python</li><li><i class="devicon-pytorch-original" aria-hidden="true"></i>PyTorch</li><li><i class="fas fa-eye" aria-hidden="true"></i>YOLO</li><li><i class="devicon-tensorflow-original" aria-hidden="true"></i>TensorFlow</li><li><i class="devicon-scikitlearn-plain" aria-hidden="true"></i>Scikit-learn</li><li><i class="devicon-opencv-plain" aria-hidden="true"></i>OpenCV</li><li><i class="fas fa-link" aria-hidden="true"></i>LangChain</li><li><i class="devicon-fastapi-plain" aria-hidden="true"></i>FastAPI</li><li><i class="devicon-django-plain" aria-hidden="true"></i>Django</li><li><i class="devicon-flask-original" aria-hidden="true"></i>Flask</li><li><i class="devicon-pandas-plain" aria-hidden="true"></i>Pandas</li><li><i class="devicon-postgresql-plain" aria-hidden="true"></i>PostgreSQL</li><li><i class="devicon-mysql-original" aria-hidden="true"></i>MySQL</li><li><i class="devicon-git-plain" aria-hidden="true"></i>Git</li></ul>
+                <ul class="marquee-group" aria-hidden="true"><li><i class="devicon-python-plain" aria-hidden="true"></i>Python</li><li><i class="devicon-pytorch-original" aria-hidden="true"></i>PyTorch</li><li><i class="fas fa-eye" aria-hidden="true"></i>YOLO</li><li><i class="devicon-tensorflow-original" aria-hidden="true"></i>TensorFlow</li><li><i class="devicon-scikitlearn-plain" aria-hidden="true"></i>Scikit-learn</li><li><i class="devicon-opencv-plain" aria-hidden="true"></i>OpenCV</li><li><i class="fas fa-link" aria-hidden="true"></i>LangChain</li><li><i class="devicon-fastapi-plain" aria-hidden="true"></i>FastAPI</li><li><i class="devicon-django-plain" aria-hidden="true"></i>Django</li><li><i class="devicon-flask-original" aria-hidden="true"></i>Flask</li><li><i class="devicon-pandas-plain" aria-hidden="true"></i>Pandas</li><li><i class="devicon-postgresql-plain" aria-hidden="true"></i>PostgreSQL</li><li><i class="devicon-mysql-original" aria-hidden="true"></i>MySQL</li><li><i class="devicon-git-plain" aria-hidden="true"></i>Git</li></ul>
             </div>
         </section>
 
