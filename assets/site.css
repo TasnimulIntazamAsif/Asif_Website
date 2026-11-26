@@ -356,3 +356,25 @@ dl.glass .glass-label { white-space: nowrap; }
     /* Bigger tap targets in the mobile menu */
     #mobile-menu .nav-link { padding: 12px 14px; font-size: 15px; }
 }
+
+/* ---------------------------------------------------------------------
+   11. Project screenshots
+   --------------------------------------------------------------------- */
+.proj-head.has-shot { height: 190px; background: var(--n-100); }
+.proj-head--lg.has-shot { height: 260px; }
+.proj-shot {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    transition: transform .5s var(--ease-standard);
+}
+.project:hover .proj-shot { transform: scale(1.04); }
+.proj-head.has-shot::after { /* dark fade at the bottom so the labels stay readable */
+    background: linear-gradient(to top, rgba(15,13,11,.55), rgba(15,13,11,0) 55%);
+    -webkit-mask-image: none; mask-image: none;
+}
+.proj-head.has-shot .proj-icon { display: none; }
+.proj-head.has-shot .proj-tag, .proj-head.has-shot .paper-badge { box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+@media (max-width: 639px) {
+    .proj-head.has-shot { height: 180px; }
+    .proj-head--lg.has-shot { height: 200px; }
+}
+@media (prefers-reduced-motion: reduce) { .proj-shot { transition: none; } }
